@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>我的</title>
+    <link rel="stylesheet" href="plugin/seedsui.min.css">
+    <link rel="stylesheet" href="css/uiAlertView-1.0.0.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/me.css">
+    <script src="js/rem.js"></script>
+
+</head>
+
+<body>
+    <!-- 头部 -->
+    <header class="me_header">
+        个人中心
+    </header>
+    <!-- 个人头像 pic-->
+    <div class="pic">
+        <!-- <div class="pic-head"> -->
+        <a href="#">
+            <img id="admin_img" src="" alt="">
+        </a>
+        <a href="javascript:;" class="nickName"></a>
+        <!-- </div> -->
+    </div>
+    <!-- 设置个人中心 list-->
+    <div class="person-list">
+        <ul class="list-1">
+            <li>
+                <span class="icon icon-fav-fill"></span>
+                <a href="javascript:;"> 我的资料
+                    <i class="icon icon-arrowright"></i>
+                </a>
+            </li>
+            <li>
+                <span class="icon icon-fav-fill"></span>
+                <a href="./html/invoice/myInvoice.html"> 发票与报销
+                    <i class="icon icon-arrowright"></i>
+                </a>
+            </li>
+            <li>
+                <span class="icon icon-fav-fill"></span>
+                <a href="./html/me/myorder.html"> 我的订单
+                    <i class="icon icon-arrowright"></i>
+                </a>
+            </li>
+            <li>
+                <span class="icon icon-fav-fill"></span>
+                <a href="./html/me/myapply.html"> 我的报名
+                    <i class="icon icon-arrowright"></i>
+                </a>
+            </li>
+        </ul>
+        <ul class="list-2">
+            <li>
+                <span class="icon icon-fav-fill"></span>
+                <a href="./html/me/myfavorite.html"> 我的收藏
+                    <i class="icon icon-arrowright"></i>
+                </a>
+            </li>
+            <li>
+                <span class="icon icon-fav-fill"></span>
+                <a href="./html/me/myfootprint.html"> 我的足迹
+                    <i class="icon icon-arrowright"></i>
+                </a>
+            </li>
+            <li>
+                <span class="icon icon-fav-fill"></span>
+                <a href="./html/me/buyrecord.html"> 购买记录
+                    <i class="icon icon-arrowright"></i>
+                </a>
+            </li>
+            <li>
+                <span class="icon icon-fav-fill"></span>
+                <a href="./html/me/aboutUs.html"> 关于我们
+                    <i class="icon icon-arrowright"></i>
+                </a>
+            </li>
+            <li class="exit">
+                <span class="icon icon-fav-fill"></span>
+                <a href="./html/me/setting.html"> 设置
+                    <i class="icon icon-arrowright"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+
+    <footer id="footer">
+        <ul class="clearfix">
+            <li>
+                <a href="index.html">
+                    <i class="home"></i>
+                    <label>推荐</label>
+                </a>
+            </li>
+            <li>
+                <a href="leaning.html">
+                    <i class="date"></i>
+                    <label>学习资料</label>
+                </a>
+            </li>
+            <li>
+                <a class="base_active" href="me.html">
+                    <i class="me"></i>
+                    <label>我的</label>
+                </a>
+            </li>
+        </ul>
+    </footer>
+
+
+    <script src="plugin/jquery.js"></script>
+    <script src="js/jquery.uiAlertView-1.0.0.js"></script>
+    <script src="js/exitLogon.js"></script>
+    <script>
+        $(function () {
+            $(window).on('load', function () {
+                let username = localStorage.getItem('username'),
+                    password = localStorage.getItem('password');
+                if (username) {
+                    $.ajax({
+                        type: "post",
+                        url: "http://39.104.90.182:80/px/service/px/login_login.json",
+                        data: { username: username, password: password },
+                        success: function (res) {
+                            console.log(res.data.img)
+                            $("#admin_img").attr("src", 'http://www.iepsy.com/' + res.data.img);
+                        }
+                    })
+                } else {
+                    $("#admin_img").attr("src", "images/pic_2.png");
+                }
+
+                // 判断是否登录,显示用户昵称
+                if (username) {
+                    $(".pic .nickName").html(username).click(function () {
+                        exitLogon();
+                    })
+                } else {
+                    $(".pic .nickName").html("点击登录");
+                    $(".pic .nickName").click(function () {
+                        location = "./login.html";
+                    });
+                }
+                // 点击各个类别时,判断登录状态是否可以进入详情
+                $(".person-list li").click(function(){
+                    if(username){
+                        console.log(333)
+                        location.href="html/me/myinfo.html";
+                    }else{
+                        location.href="login.html"
+                    }
+                })
+            })
+
+        })
+
+    </script>
+    <script>
+
+
+    </script>
+</body>
+
+</html>

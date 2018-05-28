@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>往期课程回顾详情页面</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../plugin/seedsui.min.css">
+    <link rel="stylesheet" href="../css/course.css">
+    <link rel="stylesheet" href="../css/note.css">
+    <style>
+    </style>
+</head>
+
+<body>
+    <div class="note_master">
+        <header class="detail_header">
+            <a href="#" onclick="back()"></a>
+            <h3>课程笔记</h1>
+        </header>
+        <div class="note">
+            
+        </div>
+        <div class="share">
+            <ul id="share">
+                <!-- 学员评论 -->
+                <!-- 加载模板 -->
+            </ul>
+            <h1 id="ajax_Btn">开始加载数据</h4>
+        </div>
+        <footer class="note_footer clearfix">
+            <a href="#">
+                <span class="iconfont icon-shoucang"></span>
+                <span>收藏</span>
+            </a>
+            <a id="disscuss" href="#">
+                <span class="iconfont icon-iconfontpinglun"></span>
+                <span>评论</span>
+            </a>
+            <a href="#">
+                <span class="iconfont icon-fenxiang"></span>
+                <span>分享</span>
+            </a>
+        </footer>
+    </div>
+
+    <!--  评论笔记 ================ -->
+    <div class="write hide">
+        <!--头部-->
+        <header class="detail_header">
+            <a href="#" onclick="write_back()"></a>
+            <h3>评论</h1>
+        </header>
+
+        <textarea name="text" id="text" placeholder="输入评论"></textarea>
+        <div class="clearfix">
+            <div></div>
+            <div class="btn fr">提交</div>
+        </div>
+    </div>
+    <!-- 回复评论 ================== -->
+    <div class="write_agin hide">
+        <!--头部-->
+        <header class="detail_header">
+            <a href="#" onclick="write_back()"></a>
+            <h3>评论</h1>
+        </header>
+
+        <textarea name="text" id="text1" placeholder="输入评论"></textarea>
+        <div class="clearfix">
+            <div></div>
+            <div class="write_btn fr">提交</div>
+        </div>
+    </div>
+
+    <div class="mod hide">
+
+    </div>
+
+
+    <script src="../plugin/seedsui.min.js"></script>
+    <script src="../plugin/jquery.js"></script>
+    <script src="../js/rem.js"></script>
+    <script>
+        function back() {
+            window.history.go(-1)
+        }
+        function write_back() {
+            $('.write').addClass("fadeOutRightBig animated").removeClass("fadeInRightBig animated").hide();
+            $('.note_master').show();
+        }
+        // 获取url 参数
+        function GetRequest() {
+            var url = location.search; //获取url中"?"符后的字串
+            var theRequest = new Object();
+            if (url.indexOf("?") != -1) {
+                var str = url.substr(1);
+                strs = str.split("&");
+                for (var i = 0; i < strs.length; i++) {
+                    theRequest[strs[i].split("=")[0]] = decodeURIComponent(strs[i].split("=")[1]);
+                }
+            }
+            return theRequest;
+        }
+        var note_id = GetRequest(),
+            index_name = note_id['table'],
+            index_id = note_id['id'];
+            console.log(index_id);
+        /**
+         * 获取笔记详情
+        */
+
+           $.ajax({
+               type: "get",
+               url: "http://39.104.90.182:80/px/service/px/list_detail.json?table=course",
+               data: { id: index_id},
+               dataType: "json",
+               success: function (res) {
+                   console.log(res.note);
+                    $('.note').html(res.note);
+               }
+           });
+
+        var share = $('#ajax_Btn'),
+            isLoad = true,
+            currentPage = 1,
+            nomore_Text = '没有更多的数据了';
+        // 评论ajax
+        function loadData() {
+            isLoad = false;
+            $.ajax({
+                type: "get",
+                url: "http://39.104.90.182:80/px/service/px/comment_list.json",
+                data: { tbl_name: index_name, tbl_id: index_id, page: currentPage },
+                dataType: "json",
+                success: success,
+                erron: function () {
+                    alert('请求错误');
+                }
+            });
+        }
+        // 评论成功回调函数
+        function success(data) {
+            console.log(data);
+            isLoad = true;
+            currentPage++;
+
+            let res = data.list,
+                html = '';
+            // console.log(re);
+
+            // 学员评论
+            for (let i = 0; i < res.length; i++) {
+                html += '<li>';
+                html += '<div class="share-title clearfix">';
+                html += '<a class="fl" href="">';
+                html += '<img src="../images/logo.png" alt="">';
+                html += '</a>';
+                html += '<div class="fl">';
+                html += '<p>' + res[i].user.nickname + '</p>';
+                html += '<i>' + res[i].add_time + '</i>';
+                html += '</div>';
+                html += '</div>';
+                html += '<div class="share-txt">';
+                // html += '<h3>' + res[i].title + '</h3>';
+                html += '<p class="share-txt-num">' + res[i].text + '</p>';
+                html += ' </div>';
+                html += '<div class="share_agin">';
+                html += ' <ul>';
+                for (let j = 0; j < res[i].items.length; j++) {
+                    html += '<li>';
+                    html += ' <span class="nickname">' + res[i].items[j].user.nickname + '</span> <span>:</span> <span class="nicktext">' + res[i].items[j].text + '</span>';
+                    html += '</li>';
+                }
+                html += '</ul>';
+                html += ' </div>';
+                html += '<div class="share-bottom clearfix">';
+                html += '<span class="fl">浏览<i>36</i>次</span>'
+                html += '<span id="diss_agin" data_cid="' + res[i].id + '" class= "fr">5评论</span>';
+                html += '<span class="fr">10点赞</span>';
+                html += '</div>';
+                html += '</li>';
+            }
+            $('#share').append(html);
+            //接口是否查询完毕
+            if (data.pager.pageCount == data.pager.pageNumber || currentPage > data.pager.pageCount) {
+                // if (data.pageCount == data.pageNo || currentPage > data.pageCount) {
+                //数据全部加载完毕
+                isLoad = false;
+                // 如果加载完所有数据，显示不能加载更多
+                share.html(nomore_Text);
+            }
+            // 学院评论 限制字符个数
+            $(".share-txt-num").each(function () {
+                var maxwidth = 130;
+                if ($(this).text().length > maxwidth) {
+                    $(this).text($(this).text().substring(0, maxwidth));
+                    $(this).html($(this).html() + '...');
+                }
+            });
+
+            // 点击评论上的评论
+            $('#diss_agin').on('click', function () {
+                console.log(1111);
+                $('.write_agin').removeClass("fadeOutRightBig animated").addClass("fadeInRightBig animated").show();
+                $('.note_master').hide();
+                let cid_id = $(this).attr('data_cid');
+
+                $('.write_btn').on('click', function () {
+                    console.log('评论评论');
+                    $.ajax({
+                        type: "post",
+                        url: "http://39.104.90.182:80/px/service/px/comment_save.json?",
+                        data: { user_id: '1', cid: cid_id, tbl_name: index_name, tbl_id: index_id, text: $('#text1').val() },
+                        dataType: "json",
+                        success: function (res) {
+                            console.log(res);
+                            $('#text').val("");
+                            $('.mod').show();
+                            setTimeout(function () {
+                                currentPage = 1;
+                                $('#share').children('li').remove();
+                                loadData();
+                            }, 300)
+
+                            $('.write_agin').removeClass("fadeOutRightBig animated").addClass("fadeInRightBig animated").hide();
+                            $('.note_master').show();
+
+                        }
+                    });
+                })
+            });
+            $('.mod').hide();
+
+        }
+        // 判断是否应该开始加载
+        function isScrollLoad() {
+            var share_top = share.offset().top,
+                win_height = $(window).height(),
+                scroll_top = $(window).scrollTop(),
+                loading_height = share.height();
+            return share_top < scroll_top + win_height - (loading_height - 50) ? true : false;
+        }
+        // 滚动问题改变样式布局
+        $(window).scroll(function () {
+
+            // 评论区滚动加载
+            var _needload = isScrollLoad();
+            if (_needload && isLoad) {
+                loadData();
+            }
+
+        });
+        $(window).load(function () {
+            loadData();
+        });
+
+        //点击下边的评论按钮
+        $('#disscuss').on('click', function () {
+            $('.write').removeClass("fadeOutRightBig animated").addClass("fadeInRightBig animated").show();
+            $('.note_master').hide();
+            // 点击评论提交按钮 
+            $('.btn').on('click', function () {
+                console.log('评论点击');
+                btnClick();
+            });
+            function btnClick() {
+                $.ajax({
+                    type: "post",
+                    url: "http://39.104.90.182:80/px/service/px/comment_save.json?",
+                    data: { user_id: '1', tbl_name: index_name, tbl_id: index_id, text: $('#text').val() },
+                    dataType: "json",
+                    success: function (res) {
+                        console.log(res);
+                        $('#text').val("");
+                        $('.mod').show();
+                        setTimeout(function () {
+                            currentPage = 1;
+                            $('#share').children('li').remove();
+                            loadData();
+                        }, 300)
+
+                        $('.write').removeClass("fadeOutRightBig animated").addClass("fadeInRightBig animated").hide();
+                        $('.note_master').show();
+
+                    }
+                });
+            }
+        });
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

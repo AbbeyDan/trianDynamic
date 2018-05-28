@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>2-list</title>
+    <link rel="stylesheet" href="../plugin/seedsui.min.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/list.css">
+</head>
+
+<body>
+    <div id="header" class="clearfix">
+        <div class="logo fl">
+            <a href="../index.html">
+                <img src="../images/logo.png" alt="">
+            </a>
+        </div>
+        <div class="search fl">
+            <input type="text" placeholder="请输入搜索内容">
+        </div>
+        <div class="search_btn fr">
+            <span>搜索</span>
+            <!-- <i class="icon icon-qrcode"></i> -->
+        </div>
+    </div>
+
+    <div>
+        <ul id="tab-view" class="section">
+            <!-- 动态加载数据 -->
+
+        </ul>
+        <h1 id="loadingBtn">加载更多数据</h1>
+    </div>
+    <!-- <div id="loadgif">
+        <img alt="加载中..." src="../images/222.gif" />
+      
+    </div> -->
+    <script src="../plugin/seedsui.min.js"></script>
+    <script src="../plugin/jquery.js"></script>
+    <script src="../js/rem.js"></script>
+    <script>
+
+        $(function () {
+
+            let loadingBtn = $('#loadingBtn'),
+
+                isLoad = true, // 加一个锁，为了防止滚动多次触发    
+
+                currentPage = 1,
+
+                nomore_Text = '没有更多数据';
+
+
+            // ajax
+            function loadData() {
+                // http://127.0.0.1/service/px/list_list.json?table=course&page=2
+                // 发送请求是添加锁，禁止成功之前多次触发
+                isLoad = false;
+                $.ajax({
+                    type: "get",
+                    url: "http://39.104.90.182:80/px/service/px/list_list.json",
+                    data: { table: 'course', page: currentPage },
+                    dataType: "json",
+                    timeout: 3000,
+                    beforeSend: function () {
+                        $('#loadgif').show();
+                    },
+                    success: successCallback,
+                    error: function () {
+                        alert('请求错误')
+                    }
+                });
+            }
+            // 成功回调函数
+            function successCallback(data) {
+                isLoad = true;
+                console.log(data);
+                currentPage++;
+                console.log(currentPage);
+                let res = data.list,
+                    html = '';
+                for (let i = 0; i < res.length; i++) {
+                    html += '<li  class="course_li   clearfix"   data_id="' + res[i].id + '">';
+                    html += '<div class="list-left fl">';
+                    html += '<img src="http://www.iepsy.com/' + res[i].img + '" alt="">';
+                    html += '</div>';
+                    html += '<div class="list-right fl">';
+                    html += '<div class="list-right-title">';
+                    html += '<p>' + res[i].title + '</p>';
+                    html += '</div>';
+                    html += '<p class="list-right-middle clearfix">';
+                    html += '<span class="fl">' + res[i].add_time + '</span>';
+                    html += '</p>';
+                    html += '<p class="list-right-middle2 clearfix">';
+                    html += '<span class="fl">' + res[i].teacher + '</span>';
+                    html += '<span class="course_price fr" style="color:red;">' + res[i].price + '</span><span class = "fr" style="color:red">￥</span>';
+                    html += '</p>';
+                    html += '</p>';
+                    html += '</div>';
+                    html += '</li>';
+                }
+                $('#tab-view').append(html);
+                //接口是否查询完毕
+                if (data.pageCount == data.pageNo || currentPage > data.pageCount) {
+                    //数据全部加载完毕
+                    isLoad = false;
+                    // 如果加载完所有数据，显示不能加载更多
+                    loadingBtn.html(nomore_Text);
+                }
+                $('.course_price').each(function () {
+                    if ($(this).text() == 0) {
+                        $(this).html('免费');
+                        $(this).next().html("");
+                    }
+                })
+                $('#loadgif').hide();
+                $('.course_li').on('click', function () {
+                    var index_id = $(this).attr('data_id');
+                    console.log(index_id);
+                    window.location.href = './course.html?id='+index_id;
+
+                });
+            }
+            // 是否需要滚动加载
+            function isScrollLoad() {
+                let btn_top = loadingBtn.offset().top,
+                    win_hegiht = $(window).height(),
+                    scroll_top = $(window).scrollTop();
+                loading_height = loadingBtn.height();
+                return btn_top < scroll_top + win_hegiht - (loading_height - 50) ? true : false;
+            }
+            // 滚动ajax
+            $(window).scroll(function () {
+                let _needload = isScrollLoad();
+                console.log(isLoad);
+
+                if (_needload && isLoad) {
+                    loadData();
+                }
+            })
+            // 页面加载完毕ajax
+            $(window).load(function () {
+                loadData();
+
+            })
+            // 点击加载数据
+            $('#loadingBtn').on('click', function () {
+                console.log(1111);
+
+                if (isLoad) {
+                    loadData();
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

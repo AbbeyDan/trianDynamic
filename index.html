@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>首页</title>
+    <link rel="stylesheet" href="plugin/seedsui.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/uiAlertView-1.0.0.css">
+    <script src="./js/rem.js"></script>
+
+
+
+
+</head>
+
+<body>
+    <div id="header" class="clearfix">
+        <div class="logo fl">
+            <a href="">
+                <img src="./images/logo.png" alt="">
+            </a>
+        </div>
+        <div class="search fl">
+            <input type="text" placeholder="请输入搜索内容">
+        </div>
+        <div class="search_btn fr">
+            <span>搜索</span>
+            <!-- <i class="icon icon-qrcode"></i> -->
+        </div>
+    </div>
+    <!-- header end  -->
+    <!-- 导航 四个一级标签 -->
+    <div id="label-1">
+        <ul class="clearfix">
+            <li>
+                <a href="./html/list.html?table=px_certif">资格认证</a>
+            </li>
+            <li>
+                <a href="./html/list.html?table=px_cedu">继续教育</a>
+            </li>
+            <li>
+                <a href="./html/list.html?table=px_active">活动沙龙</a>
+            </li>
+            <li>
+                <a href="./html/list.html?table=px_meet">学术会议</a>
+            </li>
+        </ul>
+    </div>
+    <!-- 导航 end -->
+    <!-- 轮播图 -->
+    <div class="container">
+        <!--轮播-->
+        <div class="carrousel-container" id="carousel1">
+            <div class="carrousel-wrapper">
+                <!--第一张图片-->
+                <div class="carrousel-slide">
+                    <img class="carrousel-slide-img" src="images/1.png" />
+                </div>
+                <!--轮播图第二张图片-->
+                <div class="carrousel-slide">
+                    <img class="carrousel-slide-img" src="images/1.png" />
+                </div>
+                <!--轮播图第三张图片-->
+                <div class="carrousel-slide">
+                    <img class="carrousel-slide-img" src="images/1.png" />
+                </div>
+
+            </div>
+            <div class="carrousel-pagination"></div>
+        </div>
+    </div>
+    <!-- 轮播图 end  -->
+    <!-- nav 大导航   -->
+    <div class="nav">
+        <ul class="clearfix">
+            <li onclick="alert('杜哥做')">
+                <span class="friend"></span>
+                <label>邀请好友</label>
+            </li>
+            <li onclick="alert('好像跳到微帖')">
+                <span class="lesson"></span>
+                <label>课程表</label>
+            </li>
+            <li class="caledar">
+                <span class="data"></span>
+                <label>日历</label>
+            </li>
+            <li onclick="alert('联系客服')">
+                <span class="talk"></span>
+                <label>客服</label>
+            </li>
+        </ul>
+    </div>
+    <!-- 课程推荐-->
+    <div class="main">
+        <ul id="test_list" class="main-list">
+            <!-- 数据加载 -->
+        </ul>
+    </div>
+    <!-- 二级标签-->
+    <div class="lable-second clearfix">
+        <ul>
+            <li>
+                <a href="./html/list.html?id=34534">aaa</a>
+            </li>
+            <li>
+                <a href="./html/list.html?id=435645">bbb</a>
+            </li>
+            <li>
+                <a href="./html/list.html?id=4357">ccc</a>
+            </li>
+            <li>
+                <a href="./html/list.html?id=65756">ddd</a>
+            </li>
+            <li>
+                <a href="./html/list.html?id=132423">eee</a>
+            </li>
+            <li>
+                <a href="./html/list.html?id=67876">fff</a>
+            </li>
+        </ul>
+    </div>
+    <!-- 往期课程回顾-->
+    <div class="section">
+        <div class="course-h1">往期课程回顾
+            <a href="./html/list-course.html?tabl=course"></a>
+        </div>
+        <ul id="go-course" class="course-ul">
+            <!-- 数据加载 -->
+        </ul>
+        <div class="course-h1">目录</div>
+        <ul id="go-course1" class="main-list">
+            <!-- 数据加载 -->
+        </ul>
+        <h1 id="loadingBtn">正在加载中.......</h1>
+    </div>
+    <!-- nav 大导航 end  -->
+    <div style="height: 1rem;"></div>
+    <footer id="footer">
+        <ul class="clearfix">
+            <li>
+                <a class="base_active" href="javascript:;">
+                    <i class="home"></i>
+                    <label>推荐</label>
+                </a>
+            </li>
+            <li>
+                <a href="leaning.html">
+                    <i class="date"></i>
+                    <label>学习资料</label>
+                </a>
+            </li>
+            <li>
+                <a href="me.html">
+                    <i class="me"></i>
+                    <label>我的</label>
+                </a>
+            </li>
+        </ul>
+    </footer>
+
+
+    <script src="./plugin/seedsui.min.js"></script>
+    <script src="./plugin/jquery.js"></script>
+    <script src="./plugin/template-web.js"></script>
+    <script src="./js/jquery.uiAlertView-1.0.0.js"></script>
+    <script src="js/search.js"></script>
+
+
+
+    <script>
+
+
+        $(function () {
+            // ajax 轮播图
+            $.ajax({
+                type: "get",
+                url: "http://39.104.90.182:80/px/service/px/index_banner.json",
+                dataType: "json",
+                success: function (res) {
+                    console.log(res);
+                    for (let i = 1; i < res.length + 1; i++) {
+                        $("#carousel1 img").eq(i).attr("src", "http://www.iepsy.com/" + res[i - 1].img).attr("data-id", res[i - 1].id);
+                    }
+                    $("#carousel1 img").eq(0).attr("src", "http://www.iepsy.com/" + res[res.length - 1].img).attr("data-id", res[res.length - 1].id);
+                    $("#carousel1 img").eq(res.length + 1).attr("src", "http://www.iepsy.com/" + res[0].img).attr("data-id", res[0].id);
+                }
+            });
+            // ajax首页主推荐的两个
+            $.ajax({
+                type: "get",
+                url: "http://39.104.90.182:80/px/service/px/index_tj.json",
+                dataType: "json",
+                success: function (res) {
+
+                    let data = res,
+                        html = '';
+                    for (var i = 0; i < 2; i++) {
+                        html += '<li class="main_li" data_name="' + data[i].tbl_name + '" data_id="' + data[i].tbl_id + '">';
+                        html += '<div class="main_img">'
+                        html += '<img src="' + data[i].img + '" alt="">';
+                        html += '</div>';
+                        html += ' <div class="main-title">';
+                        html += '<span>' + data[i].type + '</span>';
+                        html += '  <i>' + data[i].tag + '</i>';
+                        html += '</div>';
+                        html += '<div class="main-footer">';
+                        html += ' <p>' + data[i].title + '</p>';
+                        html += '<ul class="clearfix">';
+                        html += ' <li class="clearfix">';
+                        html += '<span class="m-footer-l  fl">';
+                        html += '<span>' + data[i].add_time + '</span>';
+                        html += '</span>';
+                        html += '<span class="m-footer-r fr">';
+                        html += '<i class="price_fuhao">￥</i>';
+                        html += '<span class="price">' + data[i].price + '</span>';
+                        html += ' </span>';
+                        html += '</li>';
+                        html += '<li id="getmap">' + data[i].addr + '</li>';
+                        html += '</ul>';
+                        html += '</div>';
+                        html += '</li>';
+                    }
+                    $("#test_list").append(html);
+                    // 当价格为免费的时候
+                    $('.price').each(function () {
+                        if ($(this).text() == '免费') {
+                            $(this).prev().hide();
+                        }
+                    })
+                    // 点击推荐项目，跳转到详情
+                    $('.main_li').on('click', function () {
+                        var index_id = $(this).attr('data_id');
+                        var index_name = $(this).attr('data_name');
+                        console.log(index_name);
+                        console.log(index_id);
+                        if (index_name == 'px_cedu') {
+                            window.location.href = "./html/detail/study.html?id=" + index_id;
+                        } else if (index_name == 'px_certif') {
+                            window.location.href = "./html/detail/status.html?id=" + index_id;
+                        } else if (index_name == 'px_active') {
+                            window.location.href = "./html/detail/activity.html?id=" + index_id;
+                        } else if (index_name == 'px_meet') {
+                            window.location.href = "./html/detail/meeting.html?id=" + index_id;
+                        }
+                    })
+                }
+            });
+            //  ajax往期回顾的三个课程
+            $.ajax({
+                type: "get",
+
+                url: 'http://39.104.90.182:80/px/service/px/index_course.json',
+
+                dataType: 'json',
+                //成功回调
+                success: function (data) {
+                    // console.log(data);
+                    var res = data,
+                        html = '';
+                    //外层循环获取一共有多少道题
+                    for (var i = 0; i < 3; i++) {
+                        html += '<li class="clearfix" data_id="' + res[i].id + '">';
+                        html += '<div class="list-left fl">';
+                        html += '<img src="http://www.iepsy.com/' + res[i].img + '" alt="">';
+                        html += '</div>';
+                        html += '<div class="list-right fl">';
+                        html += '<div class="list-right-title">';
+                        html += '<p>' + res[i].title + '</p>';
+                        html += '</div>';
+                        html += '<p class="list-right-middle clearfix">';
+                        html += '<span class="fl">' + res[i].teacher + '</span>';
+                        html += '</p>';
+                        html += '<p class="list-right-middle2 clearfix">';
+                        html += '<span class="fl">' + res[i].tag + '</span>';
+                        html += '</p>';
+                        html += '<p class="list-right-bottom  clearfix">';
+                        html += '<span class="course_price fr">' + res[i].price + '</span><span class = "fr">￥</span>';
+                        html += '</p>';
+                        html += '</div>';
+                        html += '</li>';
+                    }
+                    $('#go-course').append(html);
+                    //点击往期课程回顾的课程，获取这个课程的id，跳转到course 页面
+                    $('#go-course li').on('click', function () {
+                        var index_id = $(this).attr('data_id');
+                        window.location.href = "./html/course.html?id=" + index_id;
+                    })
+                    $('.course_price').each(function () {
+                        if ($(this).text() == '免费') {
+                            $(this).next().html('');
+                        }
+                    })
+                },
+                //失败回调
+                error: function () {
+                    //
+                    alert('请求失败');
+                }
+            })
+
+            //  1 获取需要加载区域距离顶部的距离
+            //  2 获取滚动条距离顶部的距离
+            //  3 获取窗口的高度
+            // 加载更多dom
+            var loadingBtn = $('#loadingBtn');
+            //是否需要加载
+            var isLoad = true;
+            //当前查询第几页
+            var currentPage = 1;
+            //没有更多数据
+            var nomore_Text = '没有更多数据';
+            /*
+                请求数据接口
+            */
+            function loadData() {
+                isLoad = false;
+                $.ajax({
+                    type: "get",
+                    url: 'http://39.104.90.182:80/px/service/px/list_list.json',
+                    // 参数
+                    data: { page: currentPage },
+                    dataType: 'json',
+                    //成功回调
+                    success: sucessCallback,
+                    //失败回调
+                    error: function () {
+                        //
+                        alert('请求失败');
+                    }
+                })
+            }
+            /*
+                成功的回调函数
+            */
+            function sucessCallback(res) {
+                isLoad = true;
+                console.log(res);
+
+                currentPage++;
+                var data = res.list;
+
+                var html = '';
+                for (var i = 0; i < data.length; i++) {
+                    html += '<li class="mulu_list" data_name=" ' + data[i].type + '"  data_id="' + data[i].id + '">';
+                    html += '<div class="main_img">'
+                    html += '<img src="' + data[i].img + '" alt="">';
+                    html += '</div>';
+                    html += ' <div class="main-title">';
+                    html += '<span>' + data[i].type + '</span>';
+                    html += '  <i>' + data[i].addr + '</i>';
+                    html += '</div>';
+                    html += '<div class="main-footer">';
+                    html += ' <p>' + data[i].title + '</p>';
+                    html += '<ul class="clearfix">';
+                    html += ' <li class="clearfix">';
+                    html += '<span class="m-footer-l  fl">';
+                    html += '<span>' + data[i].add_time + '</span>';
+                    html += '</span>';
+                    html += '<span class="m-footer-r fr">';
+                    html += '<i class="price_fuhao">￥</i>';
+                    html += '<span class="price">' + data[i].price + '</span>';
+                    html += ' </span>';
+                    html += '</li>';
+                    html += '<li id="getmap">' + data[i].addr + '</li>';
+
+                    html += '</ul>';
+                    html += '</div>';
+                    html += '</li>';
+
+                }
+                if (res.pager.pageCount == res.pager.pageNumber || currentPage > res.pager.pageCount) {
+                    //数据全部加载完毕
+
+                    isLoad = false;
+
+                    loadingBtn.html(nomore_Text);
+                }
+                //把动态生成的html模板添加到页面的ul标签中
+                $("#go-course1").append(html);
+                // console.log($('.price').text());
+                $('.price').each(function () {
+                    if ($(this).text() == '免费') {
+                        $(this).prev().html('');
+                    }
+                })
+
+                // 点击推荐项目，跳转到详情
+                $('.mulu_list').on('click', function () {
+                    let mulu_id = $(this).attr('data_id'),
+                        mulu_name = $.trim($(this).attr('data_name')); // 去除空格
+                    if (mulu_name == '继续教育') {
+                        window.location.href = "./html/detail/study.html?id=" + mulu_id;
+                    } else if (mulu_name == '资格认证') {
+                        window.location.href = "./html/detail/status.html?id=" + mulu_id;
+                    } else if (mulu_name == '活动沙龙') {
+                        window.location.href = "./html/detail/activity.html?id=" + mulu_id;
+                    } else if (mulu_name == '学术会议') {
+                        window.location.href = "./html/detail/meeting.html?id=" + mulu_id;
+                    }
+                })
+
+            }
+            function isScrollLoad() {
+                //加载更多距离
+                var btn_top = loadingBtn.offset().top;
+
+                //窗体高度
+                var window_height = $(window).height();
+
+                //滚动距离
+                var scroll_Top = $(window).scrollTop();
+
+                //加载更多高度
+                var loading_height = loadingBtn.height();
+
+                //是否需要加载(底部距离是否小于窗口高度+滚动的距离)
+                return btn_top < scroll_Top + window_height - (loading_height - 50) ? true : false;
+            }
+            $(window).scroll(function () {
+                //是否滚动到底部
+                var _needload = isScrollLoad();
+                // isLoad 是否需要加载
+                if (_needload && isLoad) {
+                    //加载数据
+                    loadData();
+                }
+            });
+            $(window).load(function () {
+                loadData();
+            })
+
+            // 跳转日历
+            $('.caledar').on('click', function () {
+                window.location.href = './html/Calendar/index.html'
+            });
+            // 轮播图
+            var s1 = new Carrousel("#carousel1", {
+                "pagination": ".carrousel-pagination",
+                autoplay: 3000,
+                "loop": true
+            });
+            //点击轮播图
+            $('.carrousel-slide-img').on('click', function () {
+                let course_id = $(this).context.dataset.id;
+                window.location.href = './html/course.html?id=' + course_id;
+                // alert('根据不同的类型跳转到详情页面')
+                // console.log($(this).context.dataset.id);
+                console.log($(this).context.dataset.id);
+
+            });
+
+        });
+
+    </script>
+
+
+</body>
+
+</html>

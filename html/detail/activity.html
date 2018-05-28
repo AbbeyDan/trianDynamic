@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>继续教育</title>
+    <link rel="stylesheet" href="../../plugin/seedsui.min.css">
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/detail.css">
+    <script src="../../js/rem.js"></script>
+</head>
+
+<body>
+    <header class="detail_header">
+        <a href="#" onclick="back()"></a>
+        <h3>活动沙龙</h1>
+    </header>
+    <nav class="detail_nav">
+        <img class="active_img" alt="">
+    </nav>
+    <section class="detail_section">
+        <ul>
+            <li class="section_title">
+                <p class="active_title">“牵手未来“青少年心理素养教育撒即可撒发生</p>
+            </li>
+            <li class="active_time">2018/10/10 10:30</li>
+            <li class="position">北京·顺义·后沙峪地铁站</li>
+            <li class="active_teacher">许兴旺</li>
+        </ul>
+    </section>
+    <!-- 认证机构 -->
+    <div class="jigou">
+        <ul class="juban clearfix">
+            <li class="jubanfang jb_active fl">举办方</li>
+            <li class="fl">参会（支持）单位</li>
+        </ul>
+        <div class="jb_tab">
+            <div class="renzheng_detail">中国少年儿童发展服务中心</div>
+            <div class="renzheng_detail none">参会支持单位</div>
+        </div>
+
+    </div>
+    <!-- 参会的 -->
+    <div>
+        <ul class="detail_tab1 clearfix">
+            <li class="detail_active1">
+                <span>活动介绍</span>
+            </li>
+            <li>
+                <span>活动日程</span>
+            </li>
+            <li>
+                <span>嘉宾介绍</span>
+            </li>
+            <li>
+                <span>活动指南</span>
+            </li>
+        </ul>
+        <div class="detail_tabbar1">
+            <ul>
+                <li>活动介绍</li>
+                <li>活动介绍</li>
+                <li>活动介绍</li>
+            </ul>
+            <ul class="none">
+                <li>活动日程</li>
+                <li>活动日程</li>
+                <li>活动日程</li>
+            </ul>
+            <ul class="none">
+                <li>嘉宾介绍</li>
+                <li>嘉宾介绍</li>
+                <li>嘉宾介绍</li>
+            </ul>
+            <ul class="none">
+                <li>活动指南</li>
+                <li>活动指南</li>
+                <li>活动指南</li>
+            </ul>
+        </div>
+    </div>
+    <div style="height:.98rem;"></div>
+    <footer class="detail_footer clearfix">
+        <div class="msn fl">
+            <i class="icon icon-chat"></i> 留言</div>
+        <div class="diss fl">
+            <i class="icon icon-fav"></i> 600人</div>
+        <div class="apply fl">
+            <a id="detail_btn" href="#">立即报名</a>
+        </div>
+    </footer>
+
+    <!-- 遮挡层 -->
+    <div class="detail_mod none">
+
+    </div>
+    <!-- 判断层 -->
+    <div class="d_mod none">
+        <div class="d_mod_close icon icon-close-fill"></div>
+
+        <h4>是否已线下缴费</h4>
+        <div class="mod_bottom clearfix">
+            <a class="md_true fl" href="#">是</a>
+            <a class="md_false fl" href="#">否</a>
+        </div>
+    </div>
+    <!-- 报价层 -->
+    <div class="dmod_price none">
+        <!-- 关闭按钮 -->
+        <div class="dmod_close icon icon-close-fill"></div>
+        <div class="ticket-title">
+            <p>票价类型</p>
+            <div class="ticket-item clearfix" data-type="1000">
+                <lable class="fl">早鸟：</lable>
+                <span class="fr">1000.00</span>
+                <span class="fr">￥</span>
+            </div>
+            <div class="ticket-item clearfix" data-type="2000">
+                <lable class="fl">团报：</lable>
+                <span class="fr">2000.00</span>
+                <span class="fr">￥</span>
+            </div>
+            <div class="ticket-item clearfix" data-type="8888">
+                <lable class="fl">原价：</lable>
+                <span class="fr">8888.00</span>
+                <span class="fr">￥</span>
+            </div>
+            <div class="ticket-item clearfix" data-type="333">
+                <lable class="fl">学生：</lable>
+                <span class="fr">333.00</span>
+                <span class="fr">￥</span>
+            </div>
+            <div class="ticket-num">
+                <span>购买数量：</span>
+                <div class="numbox bordered" style="margin:8px">
+                    <input type="button" disabled class="numbox-button" value="-" />
+                    <input type="number" class="numbox-input" value="0" />
+                    <input type="button" class="numbox-button" value="+" />
+                </div>
+            </div>
+        </div>
+        <div class="ticket_btn">确定</div>
+    </div>
+
+    <script src="../../plugin/seedsui.min.js"></script>
+    <script src="../../plugin/jquery.js"></script>
+    <script src="../../js/ajax.js"></script>
+    <script>
+        var view = {
+            /*=========================
+              Model
+              ===========================*/
+            initialize: function() {
+                this.render(); //使用backbone时，此行无用
+            },
+            render: function() {
+                var self = this;
+                /*渲染页面*/
+                /*DOM*/
+                this.formControls = new FormControls();
+                /*加载数据*/
+                this.loadData();
+            },
+            refresh: function() {
+                console.log("刷新");
+            },
+            destroy: function() {
+                console.log("移除");
+            },
+            loadData: function() {
+
+                this._attach(); //使用backbone时，此行无用
+            },
+            /*=========================
+              Method
+              ===========================*/
+            /*=========================
+              Events
+              ===========================*/
+            _attach: function(e) {
+                var self = this;
+            },
+            /*=========================
+              Event Handler
+              ===========================*/
+            _onEvent: function(e) {
+
+            }
+        };
+        view.initialize();
+        $('.juban li').on('click', function() {
+            $(this).addClass('jb_active').siblings().removeClass('jb_active');
+            $(".jb_tab div").eq($(this).index()).show().siblings().hide();
+        })
+        $('.detail_tab1 li').on('click', function() {
+            $(this).addClass('detail_active1').siblings().removeClass('detail_active1');
+            $(".detail_tabbar1 ul").eq($(this).index()).show().siblings().hide();
+
+        })
+
+        function back() {
+            window.history.go(-1)
+        }
+        // 点击叉号，关闭遮挡层和判断层
+        $('.d_mod_close').on('click', function() {
+            $('.d_mod').hide();
+            $('.detail_mod').hide();
+        });
+        $('.dmod_close').on('click', function() {
+            var userName = localStorage.getItem("username");
+            if (userName) {
+                $('.detail_mod').show();
+                $('.d_mod').show();
+            } else {
+                location = "../../login.html?";
+            }
+        });
+
+        // 点击确定是线下缴费的还是线上缴费
+        $('#detail_btn').on('click', function() {
+                var userName = localStorage.getItem("username");
+                if (userName) {
+                    $('.detail_mod').show();
+                    $('.d_mod').show();
+                } else {
+                    location = "../../login.html?login=baoming";
+                }
+                // 点击是，带上参数跳转到线下缴费信息上传
+                $('.md_true').on('click', function() {
+                    window.location.href = '../person-info/person-info.html?table=px_certif&id=' + index_id;
+                });
+                $('.md_false').on('click', function() {
+                    $('.d_mod').hide();
+                    $('.dmod_price').show();
+                });
+                // 跳转线上缴费页面
+                $('.ticket_btn').on('click', function() {
+                    var num = $('.numbox-input').val();
+                    $('.numbox-input').val('0');
+                    if (num == 0) {
+                        alert("请选择购买数量")
+                    } else {
+                        // 本地存储购买的类型和数量
+                        localStorage.setItem("pay_num", num);
+                        window.location.href = '../person-info/person-info1.html?table=cedu&id=' + index_id;
+                    }
+                });
+            })
+            // 选中价格获取价格
+        $('.ticket-item').on('click', function() {
+                $('.ticket-item').each(function() {
+                    $('.ticket-item').removeClass('active_item');
+                })
+                $(this).addClass('active_item');
+                var pay_type = $(this).attr('data-type');
+                // 本地存储购买的类型和数量
+                localStorage.setItem("pay_type", pay_type);
+                console.log(pay_type);
+            })
+            /*
+           页面跳转接受参数封装
+       */
+        function GetRequest() {
+            var url = location.search, //获取url中"?"符后的字串
+                theRequest = new Object();
+            if (url.indexOf("?") != -1) {
+                var str = url.substr(1);
+                strs = str.split("&");
+                for (var i = 0; i < strs.length; i++) {
+                    theRequest[strs[i].split("=")[0]] = decodeURIComponent(strs[i].split("=")[1]);
+                }
+            }
+            return theRequest;
+        }
+        var active_id = GetRequest(); // 输出 { “id": xxx}
+        var index_id = active_id['id']; // 输出 xxx
+        console.log(index_id);
+
+        // 请求详情信息
+        ajax("get", "list_detail.json?", {
+                table: 'px_active',
+                id: index_id
+            }, "json",
+            function(res) {
+                console.log(res);
+                let active_img = res.img,
+                    active_title = res.title,
+                    active_time = res.add_time,
+                    active_addr = res.addr,
+                    active_teacher = res.teacher,
+                    active_unit = res.unit;
+                $('.active_img').attr('src', active_img);
+                $('.active_title').html(active_title);
+                $('.active_time').html(active_time);
+                $('.position').html(active_addr);
+                $('.active_teacher').html(active_teacher);
+                $('.renzheng_detail').html(active_unit);
+            }
+
+        );
+    </script>
+</body>
+
+</html>

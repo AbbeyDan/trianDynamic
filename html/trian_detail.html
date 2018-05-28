@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>用户练习的详情页面</title>
+    <link rel="stylesheet" href="../plugin/seedsui.min.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/trian_detail.css">
+</head>
+
+<body>
+    <div class="trian_detail">
+        <!--头部-->
+        <header class="detail_header">
+            <a href="#" onclick="back()"></a>
+            <h3>练习详情</h1>
+                <div class="header_btn">举报</div>
+        </header>
+        <div class="trian_detail_title">
+            <h1 style="font-size:.6rem">**AI时代下人机关系出现新局面**</h1>
+        </div>
+        <div class="main">
+            <div class="main_per">
+                <span class="img">
+                    <img src="#" alt="">
+                </span>
+                <span>张丽娟</span>
+            </div>
+            <div>
+                <span>⭐️️️️⭐️️️️⭐️️️️⭐️️️️⭐️️️️</span>
+                <span>5 同学强烈推荐</span>
+                <span>2018-03-03</span>
+            </div>
+            <div class="main_text">
+                <h3>#科技因你的生活而升温</h3>
+                <br>
+                <br>
+                <br>
+                <p>听了注明老是的课，很受启发</p>
+                <br>
+                <br>
+                <p>科技不易人的意志为专业，所以他注定就是剪影又冰冷的。只有铲平的擦黄沼泽主动选择，设置夹克的的使用场景来富裕他温蒂</p>
+                <br>
+                <p>我家里有一个天猫精灵，借这个产品我来简要分析依稀阿其中蕴含的朱老师所讲的产品逻辑。这款天猫精灵有娱乐功能，生活服务风能，还有可以代为购物，甚至可以给小朋友爱那个故事。功能缺失强大到过生。但是他的两三点积分三大是打发了圣诞节阿萨德阿撒地方记录卡收到缴费手动阀见识到了福建阿斯顿爱的世界法拉盛京东方a静安寺砥砺奋进阿萨德大空间法拉水电费阿萨德了飞机阿里束带结发啊圣诞节福利卡三等奖发送啊圣诞节福利卡刷卡的缴费打飞机阿萨德了开发商大立科技发生大了房间爱是考虑到阿萨德了飞机爱神的箭阿萨德积分；阿萨德积分，拉三等奖发熟练度、哦拉上打飞机阿萨德
+                    。
+                </p>
+                <br>
+                <p>受打击了sad发的发生来看待阿萨德理发师代理费； 暗室逢灯；累了；范德萨阿里斯顿福建阿市领导阿萨德了飞机啊施蒂利克发阿拉山口打飞机啊施蒂利克暗室逢灯立刻就发了斯柯达发送砥砺奋进喀什东路暗室逢灯拉圣诞节福利卡仕达就拉屎的房间辣时代峻峰阿萨德；氨基酸的饭卡舒服多了记录卡士大夫阿萨德六块腹肌爱上了点击发送乐山大佛距离。</p>
+                <br>
+                <p>收到了解放路sad啊速度快放假啦水电费拉圣诞节福利卡仕达拉的设计费拉萨的拉三等奖发送到；就离开撒地方阿萨德离开静安寺电费卡胜利大街阿斯蒂芬卢卡斯的减肥啦时间到了发送砥砺奋进阿萨德浪费阿斯兰的咖啡机阿斯利康的发熟练度就爱上对方立刻就阿里山的看法垃圾水电费离开阿萨德流量卡时代峰峻阿斯蒂芬拉萨的拉萨的李开复阿萨德了圣诞节法拉盛</p>
+                <br>
+                <p>苏打绿发撒的阿萨德了福建阿市领导阿萨德了房间爱上；地方阿萨德了卡士大夫爱上邓丽君啊时代峰峻阿萨德了。。sad浪费空间阿萨德了。</p>
+            </div>
+        </div>
+        <div class="trian_detail_diss">
+            <div class="share">
+                <ul id="share">
+                    <!-- 学员评论 -->
+                    <!-- 加载模板 -->
+                </ul>
+                <h1 id="ajax_Btn">开始加载数据</h4>
+            </div>
+        </div>
+        <footer class="note_footer clearfix">
+            <a href="#">
+                <span class="iconfont icon-shoucang"></span>
+                <span>收藏</span>
+            </a>
+            <a id="disscuss" href="#">
+                <span class="iconfont icon-iconfontpinglun"></span>
+                <span>评论</span>
+            </a>
+            <a href="#">
+                <span class="iconfont icon-fenxiang"></span>
+                <span>分享</span>
+            </a>
+        </footer>
+    </div>
+
+    <!--  评论笔记 ================ -->
+    <div class="write hide">
+        <!--头部-->
+        <header class="detail_header">
+            <a href="#" ></a>
+            <h3>评论</h1>
+        </header>
+
+        <textarea name="text" id="text" placeholder="输入评论"></textarea>
+        <div class="clearfix">
+            <div></div>
+            <div class="btn fr">提交</div>
+        </div>
+    </div>
+    <!-- 回复评论 ================== -->
+    <div class="write_agin hide">
+        <!--头部-->
+        <header class="detail_header">
+            <a href="javascript:;" ></a>
+            <h3>评论</h1>
+        </header>
+
+        <textarea name="text" id="text1" placeholder="输入评论"></textarea>
+        <div class="clearfix">
+            <div></div>
+            <div class="write_btn fr">提交</div>
+        </div>
+    </div>
+
+    <script src="../plugin/seedsui.min.js"></script>
+    <script src="../plugin/jquery.js"></script>
+    <script src="../js/rem.js"></script>
+    <script src="../js/ajax.js"></script>
+    <script>
+        function back() {
+            window.history.go(-1)
+        }
+        // 获取url 参数
+        function GetRequest() {
+            var url = location.search; //获取url中"?"符后的字串
+            var theRequest = new Object();
+            if (url.indexOf("?") != -1) {
+                var str = url.substr(1);
+                strs = str.split("&");
+                for (var i = 0; i < strs.length; i++) {
+                    theRequest[strs[i].split("=")[0]] = decodeURIComponent(strs[i].split("=")[1]);
+                }
+            }
+            return theRequest;
+        }
+        var note_id = GetRequest(),
+            index_name = note_id['table'],
+            index_id = note_id['id'];
+        /*
+               学员评论区域需要滚动加载
+        */
+        var share = $('#ajax_Btn'),
+            isLoad = true,
+            currentPage = 1,
+            nomore_Text = '没有更多的数据了';
+        // 评论ajax
+        function loadData() {
+            console.log(1324234);
+
+            isLoad = false;
+
+            // $.ajax({
+            //     type: "get",
+            //     url: "http://39.104.90.182:80/px/service/px/comment_list.json",
+            //     data: { tbl_name: index_name, tbl_id: index_id, page: currentPage },
+            //     dataType: "json",
+            //     success: success,
+            //     erron: function () {
+            //         alert('请求错误');
+            //     }
+            // });
+            ajax("get","comment_list.json", { tbl_name: index_name, tbl_id: index_id, page: currentPage },"json",success,function () {
+                    alert('请求错误');
+                })
+        }
+        // 评论成功回调函数
+        function success(data) {
+            console.log(data);
+            isLoad = true;
+            currentPage++;
+
+            let res = data.list,
+                html = '';
+            // console.log(re);
+
+            // 学员评论
+            for (let i = 0; i < res.length; i++) {
+                html += '<li>';
+                html += '<div class="share-title clearfix">';
+                html += '<a class="fl" href="">';
+                html += '<img src="../images/logo.png" alt="">';
+                html += '</a>';
+                html += '<div class="fl">';
+                html += '<p>' + res[i].user.nickname + '</p>';
+                html += '<i>' + res[i].add_time + '</i>';
+                html += '</div>';
+                html += '</div>';
+                html += '<div class="share-txt">';
+                // html += '<h3>' + res[i].title + '</h3>';
+                html += '<p class="share-txt-num">' + res[i].text + '</p>';
+                html += ' </div>';
+                html += '<div class="share_agin">';
+                html += ' <ul>';
+                for (let j = 0; j < res[i].items.length; j++) {
+                    html += '<li>';
+                    html += ' <span class="nickname">' + res[i].items[j].user.nickname + '</span> <span>:</span> <span class="nicktext">' + res[i].items[j].text + '</span>';
+                    html += '</li>';
+                }
+                html += '</ul>';
+                html += ' </div>';
+                html += '<div class="share-bottom clearfix">';
+                html += '<span class="fl">浏览<i>36</i>次</span>'
+                html += '<span id="diss_agin" data_cid="' + res[i].id + '" class= "fr">5评论</span>';
+                html += '<span class="fr">10点赞</span>';
+                html += '</div>';
+                html += '</li>';
+            }
+            $('#share').append(html);
+            //接口是否查询完毕
+            if (data.pager.pageCount == data.pager.pageNumber || currentPage > data.pager.pageCount) {
+                // if (data.pageCount == data.pageNo || currentPage > data.pageCount) {
+                //数据全部加载完毕
+                isLoad = false;
+                // 如果加载完所有数据，显示不能加载更多
+                share.html(nomore_Text);
+            }
+            // 学院评论 限制字符个数
+            $(".share-txt-num").each(function () {
+                var maxwidth = 130;
+                if ($(this).text().length > maxwidth) {
+                    $(this).text($(this).text().substring(0, maxwidth));
+                    $(this).html($(this).html() + '...');
+                }
+            });
+
+            // 点击评论上的评论
+            $('#share').on('click',"#diss_agin", function () {
+                console.log(1111);
+                $('.write_agin').show();
+                $('.trian_detail').hide();
+                let cid_id = $(this).attr('data_cid');
+
+                $('.write_btn').on('click', function () {
+                    console.log('评论评论');
+                    $.ajax({
+                        type: "post",
+                        url: "http://192.168.3.188/service/px/comment_save.json?",
+                        data: { user_id: '1', cid: cid_id, tbl_name: index_name, tbl_id: index_id, text: $('#text1').val() },
+                        dataType: "json",
+                        success: function (res) {
+                            console.log(res);
+                            $('#text').val("");
+                            $('.mod').show();
+                            setTimeout(function () {
+                                currentPage = 1;
+                                $('#share').children('li').remove();
+                                loadData();
+                            }, 300)
+                            $('.write_agin').hide();
+                            $('.trian_detail').show();
+                        }
+                    });
+                })
+            });
+
+
+        }
+        // 判断是否应该开始加载
+        function isScrollLoad() {
+            var share_top = share.offset().top,
+                win_height = $(window).height(),
+                scroll_top = $(window).scrollTop(),
+                loading_height = share.height();
+            return share_top < scroll_top + win_height - (loading_height - 50) ? true : false;
+        }
+        // 滚动问题改变样式布局
+        $(window).scroll(function () {
+
+            // 评论区滚动加载
+            var _needload = isScrollLoad();
+            if (_needload && isLoad) {
+                loadData();
+            }
+
+        });
+        $(window).load(function () {
+            loadData();
+        });
+
+        //点击下边的评论按钮
+        $('#disscuss').on('click', function () {
+            // $('.write').removeClass("fadeOutRightBig animated").addClass("fadeInRightBig animated").show();
+            $('.write').show();
+            $('.trian_detail').hide();
+            // 点击评论提交按钮 
+            $('.btn').on('click', function () {
+                console.log('评论点击');
+                btnClick();
+            });
+            function btnClick() {
+                let success=function (res) {
+                        console.log(res);
+                        $('#text').val("");
+                        $('.mod').show();
+                        setTimeout(function () {
+                            currentPage = 1;
+                            $('#share').children('li').remove();
+                            loadData();
+                        }, 300)
+                        $('.write').hide();
+                        $('.trian_detail').show();
+                    }
+                // $.ajax({
+                //     type: "post",
+                //     url: "http://192.168.3.188/service/px/comment_save.json?",
+                //     data: { user_id: '1', tbl_name: index_name, tbl_id: index_id, text: $('#text').val() },
+                //     dataType: "json",
+                //     success: function (res) {
+                //         console.log(res);
+                //         $('#text').val("");
+                //         $('.mod').show();
+                //         setTimeout(function () {
+                //             currentPage = 1;
+                //             $('#share').children('li').remove();
+                //             loadData();
+                //         }, 300)
+                //         $('.write').hide();
+                //         $('.trian_detail').show();
+                //     }
+                // });
+            }
+        });
+        $(".write a").click(function(){
+            $(".write").hide();
+            $('.trian_detail').show();
+        })
+        $(".write_agin a").click(function(){
+            $(".write_agin").hide();
+            $('.trian_detail').show();
+        })
+    </script>
+</body>
+
+</html>

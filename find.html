@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="plugin/seedsui.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/find.css">
+    <link rel="stylesheet" href="css/uiAlertView-1.0.0.css">
+    <title>设置</title>
+</head>
+
+<body>
+    <div class="setting">
+        <nav class="text-center">
+            <span class="back icon icon-arrowleft"></span>
+            <span class="text"> 找回密码 </span>
+        </nav>
+        <form action="#" >
+            <div class="phone">
+                <label for="">手机号:</label>
+                <input type="password" name="phone" placeholder="请输入注册的手机号">
+            </div>
+            <div class="yzm">
+                <label for="">验证码:</label>
+                <input type="text" name="yzm" placeholder="请输入验证码">
+            </div>
+            <div class="send">
+                    <input id="phone_code" type="button" class="button" value="发送验证码" style="padding: 0 10px;height: 32px;border-radius: 4px;"/>
+            </div>
+            <div class="submit ">
+                <a class="btn btn-danger">取消</a>
+                <a class="btn btn-success yes">确认</a>
+            </div>
+
+        </form>
+    </div>
+    <script src="js/rem.js"></script>
+    <script src="plugin/jquery.js"></script>
+    <script src="js/jquery.uiAlertView-1.0.0.js"></script>
+    <script src="js/exitLogon.js"></script>
+    <script>
+   function back() {
+            window.history.go(-1)
+        }
+        let phone_flag = false;
+        let password_flag = false;
+        let countdown = 120; // 发送验证码倒计时
+        let res_code; // 存储手机验证码
+        let phone_reg = /^[1][3,4,5,7,8][0-9]{9}$/i; // 手机号正则验证码
+        //手机号失去焦点
+        $('.phone input').blur(function (e) {
+
+            let phone = $.trim($('.phone input').val());
+            console.log(phone)
+            // 判断手机号格式是否正确
+            if (phone_reg.test(phone)) {
+
+                phone_flag=true;
+
+            } else{
+
+                $('.mod').show();
+                $('.mod_txt').html('手机号格式不正确');
+            }
+        })
+        //倒计时120秒
+        function settime() {
+            if (countdown == 0) {
+                $('#phone_code').attr('disabled', false);
+                $('#phone_code').val("获取验证码");
+                return;
+            } else {
+                $('#phone_code').attr('disabled', true);
+                $('#phone_code').val("重新发送(" + countdown + ")");
+                countdown--;
+            }
+            setTimeout(function () {
+                settime()
+            }, 1000)
+        }
+
+        // 点击获取验证码
+        $('#phone_code').on('click', function () {
+            if (phone_flag) {
+                // 开始倒计时
+                settime();
+                $.ajax({
+                    type: "post",
+                    url: 'http://39.104.90.182:80/px/service/px/sms_reg.json',
+                    data: { phone: $.trim($('.phone input').val()) },
+                    dataType: "json",
+                    success: function (res) {
+                        console.log(res);
+                        res_code = res.msg;
+                    }
+                });
+            } else {
+                console.log('手机号格式不正确');
+            }
+
+        });
+        $('.yes').on('click', function () {
+            let phone_code = $('.yzm input').val();
+
+            if (phone_code == res_code && phone_flag ) {
+                console.log('验证码正确');
+            }
+    })
+    </script>
+</body>
+
+</html>

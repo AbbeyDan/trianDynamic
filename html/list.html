@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>2-list</title>
+    <link rel="stylesheet" href="../plugin/seedsui.min.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/list.css">
+</head>
+
+<body>
+    <div id="header" class="clearfix">
+        <div class="logo fl">
+            <a href="../index.html">
+                <img src="../images/logo.png" alt="">
+            </a>
+        </div>
+        <div class="search fl">
+            <input type="text" placeholder="请输入搜索内容">
+        </div>
+        <div class="search_btn fr">
+            <span>搜索</span>
+            <!-- <i class="icon icon-qrcode"></i> -->
+        </div>
+    </div>
+
+    <div>
+        <ul id="tab-view" class="section">
+            <!-- 动态加载数据 -->
+
+        </ul>
+        <h1 id="loadingBtn">加载更多数据</h1>
+    </div>
+
+    <script src="../plugin/seedsui.min.js"></script>
+    <script src="../plugin/jquery.js"></script>
+    <script src="../js/rem.js"></script>
+    <script>
+
+        $(function () {
+            //  获取url的id 
+            function GetRequset() {
+                let url = location.search,
+                    theRequest = new Object();
+                if (url.indexOf("?") != -1) {
+                    let str = url.substr(1);
+                    strs = str.split('&');
+                    for (let i = 0; i < strs.length; i++) {
+                        theRequest[strs[i].split('=')[0]] = decodeURIComponent(strs[i].split('=')[1]);
+                    }
+                }
+                return theRequest;
+            }
+
+            let id = GetRequset(),
+                index_id = id['table'], // 获取URL传递过来的id 
+
+                loadingBtn = $('#loadingBtn'),
+
+                isLoad = true, // 加一个锁，防止滚动多次触发    
+
+                currentPage = 1,
+
+                nomore_Text = '没有更多数据';
+
+            console.log(index_id);
+
+            // ajax
+            function loadData() {
+                // http://127.0.0.1/service/px/list_list.json?table=course&page=2
+                isLoad = false;
+                $.ajax({
+                    type: "get",
+                    url: "http://39.104.90.182:80/px/service/px/list_list.json",
+                    data: { table: index_id, page: currentPage },
+                    dataType: "json",
+                    timeout: 3000,
+                    beforeSend: function () {
+                        $('#loadgif').show();
+                    },
+                    success: successCallback,
+                    error: function () {
+                        alert('请求错误')
+                    }
+                });
+            }
+            // 成功回调函数
+            function successCallback(data) {
+                isLoad = true;
+                console.log(data);
+                currentPage++;
+                console.log(currentPage);
+                let res = data.list,
+                    html = '';
+                for (let i = 0; i < res.length; i++) {
+                    html += '<li class="mulu_list clearfix" data_name="' + res[i].type + '" data_id="' + res[i].id + '">';
+
+                    html += '<div class="list-left fl">';
+
+                    html += '<img src="' + res[i].img + '" alt="">';
+
+                    html += '</div>';
+                    html += '<div class="list-right fl">';
+                    html += '<div class="list-right-title">';
+                    html += '<p title="77777777777">' + res[i].title.slice(0,10)+"..." + '</p>';
+                    html += '</div>';
+                    html += '<p class="list-right-middle clearfix">';
+                    html += '<span class="fl">' + res[i].add_time + '</span>';
+                    html += '</p>';
+                    html += '<p class="list-right-middle2 clearfix">';
+                    html += '<span class="fl">' + res[i].addr + '</span>';
+                    html += '<span class="course_price fr" style="color:red;">' + res[i].price + '</span><span class = "fr" style="color:red">￥</span>';
+                    html += '</p>';
+                    html += '<p class="list-right-bottom  clearfix">';
+                    html += '</p>';
+                    html += '</div>';
+                    html += '</li>';
+                }
+                $('#tab-view').append(html);
+                //接口是否查询完毕
+                if (data.pageCount == data.pageNo || currentPage > data.pageCount) {
+                    //数据全部加载完毕
+                    isLoad = false;
+                    // 如果加载完所有数据，显示不能加载更多
+                    loadingBtn.html(nomore_Text);
+                }
+                $('.course_price').each(function () {
+                    if ($(this).text() == '免费') {
+                        $(this).next().html('');
+                    }
+                })
+                // 点击列表,跳转到详情页
+                $('.mulu_list').on('click', function () {
+                    let mulu_id = $(this).attr('data_id'),
+                        mulu_name = $.trim($(this).attr('data_name')); // 去除空格
+                    if (mulu_name == '继续教育') {
+                        window.location.href = "./detail/study.html?id=" + mulu_id;
+                    } else if (mulu_name == '资格认证') {
+                        window.location.href = "./detail/status.html?id=" + mulu_id;
+                    } else if (mulu_name == '活动沙龙') {
+                        window.location.href = "./detail/activity.html?id=" + mulu_id;
+                    } else if (mulu_name == '学术会议') {
+                        window.location.href = "./detail/meeting.html?id=" + mulu_id;
+                    }
+                })
+            }
+            // 是否需要滚动加载
+            function isScrollLoad() {
+                let btn_top = loadingBtn.offset().top,
+                    win_hegiht = $(window).height(),
+                    scroll_top = $(window).scrollTop();
+                loading_height = loadingBtn.height();
+                return btn_top < scroll_top + win_hegiht - (loading_height - 50) ? true : false;
+            }
+            // 滚动ajax
+            $(window).scroll(function () {
+                let _needload = isScrollLoad();
+                if (_needload && isLoad) {
+                    loadData();
+                }
+            })
+            // 页面加载完毕ajax
+            $(window).load(function () {
+                loadData();
+
+            })
+
+        })
+    </script>
+</body>
+
+</html>

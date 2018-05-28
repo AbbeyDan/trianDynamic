@@ -1,0 +1,153 @@
+
+/*  用户练习详情页面 */
+
+/* 顶部栏 */
+.detail_header{
+    width: 100%;
+    height: 0.88rem;
+    background-color: #dc8d46;
+    color: #fff;
+    position: relative;
+}
+.detail_header h3{
+    height: 0.88rem;
+    text-align: center;
+    line-height: .88rem;
+    font-size: .3rem;
+}
+.detail_header a{
+    position: absolute;
+    top: .33rem;
+    left: .4rem;
+    display: inline-block;
+    border-left: 2px solid #fff; border-bottom: 2px solid #fff;  
+    width: .22rem; height: .22rem;  
+    transform: rotate(45deg); 
+}
+.header_right{
+    position: absolute;
+    top: 0.33rem;
+    right: 0.4rem;
+    width: .5rem;
+}
+.header_btn{
+    position: absolute;
+    top: 0.25rem;
+    right: 0.1rem;
+    width: .8rem;
+    font-size: .3rem;
+}
+.trian_detail_title{
+    background-color: #fff;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+}
+.main{
+    background-color: #fff;
+    padding: 20px 20px;
+    font-size: .2rem;
+}
+
+.main_per{
+    padding: 5px 0 ;
+}
+.img{
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.trian_detail_diss{
+    margin-bottom:1rem;
+}
+
+/* 练习评论 */
+.share{
+    margin-top: 10px;
+    background-color: #fff;
+    padding: 0 20px;
+    font-size: .2rem;
+
+}
+.share li{
+    padding-top: 10px;
+    border-bottom: 1px solid #ddd;
+}
+.share-title a{
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    margin-right: 20px;
+}
+.share-title a img{
+    width: 1rem;
+    height: 1rem;
+}
+.share-title p{
+    height: 0.5rem;
+    line-height: 0.5rem;
+    /* font-size: .3rem; */
+}
+.share-title i{
+    height: 0.5rem;
+    line-height: 0.5rem;
+    /* font-size: .25rem; */
+    color: #a0a0a0;
+}
+.share-txt-num{
+    text-indent: 2em ;
+}
+.share-bottom{
+    padding: 10px 0 ;
+    
+}
+.share-bottom span{
+
+    margin-right: 20px;
+    color: #a0a0a0;
+}
+.share_agin{
+    background-color: #ccc;
+
+}
+.share_agin li{
+    border-bottom: none;
+}
+
+/* 底部 */
+.note_footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0.88rem;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+}
+.note_footer a{
+    width: 32%;
+    height: 0.88rem;
+    line-height: 0.88rem;
+    text-align: center; 
+
+}
+
+
+/* 书写评论页面 */
+  
+textarea{
+    width: 100%;
+    height: 3rem;
+    box-sizing: border-box;
+}
+.btn,.write_btn{
+    width: 1.5rem;
+    height: 0.8rem;
+    background-color: #dc8d46;
+    text-align: center;
+    line-height: 0.8rem;
+    margin-right: 10px;
+    cursor: pointer;
+}

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>往期课程回顾详情页面</title>
+    <link rel="stylesheet" href="../plugin/seedsui.min.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/course.css">
+
+    <style>
+        video {
+            width: 100%;
+            height: 200px;
+        }
+        
+        .img_auto img {
+            width: 100%;
+            height: 4rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!--头部-->
+    <header class="detail_header">
+        <a href="#" onclick="back()"></a>
+        <h3>往期回顾播放</h1>
+    </header>
+
+
+    <div class="img">
+        <div class="img_auto">
+            <img class="course_img" alt="">
+            <!-- <video  src="../123.mp4" controls="controls"></video> -->
+        </div>
+    </div>
+    <div class="auto none">
+        <div class="auto_content">自动播放</div>
+    </div>
+    <!--  -->
+    <div>
+        <ul id="tab-view" class="tabbar tabbar-line tabbar-line-width70 animated">
+            <li class="tab course_active">
+                <label class="tab-label">学习资料</label>
+            </li>
+            <li class="tab">
+                <label class="tab-label">课程选集</label>
+            </li>
+        </ul>
+        <div id="tab-tab">
+            <!-- 学习资料 -->
+            <div class="leaning-code">
+                <div class="notes">
+                    <p class="notes_title">课程简介</p>
+                    <div class="courseIntroduction courseIntroduction-open">
+                        <!-- 课程简介 -->
+                        <!-- 加载模板 -->
+                        心理健康是青少年成长过程心理健康是青少年成长过程心理健康是青少年成长过程， 心理健康是青少年成长过程心理健康是青少年成长过程心理健康是青少年成长过程心理健康是青少年成长过程，心理健康是青少年成长过程心理健康是青少年成长过程心理健康是青少年成长过程心理健康是青少年成长过程心理健康是青少年成长过程心理健康是青少年成长过程心理健康是青少年成长过程心理健康是青少年成长过程心理健康是青少年成长过程心理健康是青少年成长过程心理健康是青少年成长过程心理健康是青少年成长过程。
+                    </div>
+                    <div class="open">展开</div>
+                </div>
+                <div id="note" class="notes">
+                    <p class="notes_ptitle">
+                        <span>课程笔记</span>
+                    </p>
+                    <div class="notes-content clearfix">
+                        <div></div>
+                    </div>
+                </div>
+                <div class="notes">
+                    <p class="notes_ptitle">
+                        <span>练习题</span>
+                    </p>
+                    <div class="trian trian-open">
+                        <p>删掉了附件三发的世界里开发商啊时代峰峻阿打算打飞机啊删掉了啊时代峰峻阿斯兰的 删掉了附件三发的世界里开发商啊时代峰峻阿打算打飞机啊删掉了啊时代峰峻阿斯兰的 删掉了附件三发的世界里开发商啊时代峰峻阿打算打飞机啊删掉了啊时代峰峻阿斯兰的 删掉了附件三发的世界里开发商啊时代峰峻阿打算打飞机啊删掉了啊时代峰峻阿斯兰的 删掉了附件三发的世界里开发商啊时代峰峻阿打算打飞机啊删掉了啊时代峰峻阿斯兰的 删掉了附件三发的世界里开发商啊时代峰峻阿打算打飞机啊删掉了啊时代峰峻阿斯兰的
+                            删掉了附件三发的世界里开发商啊时代峰峻阿打算打飞机啊删掉了啊时代峰峻阿斯兰的 删掉了附件三发的世界里开发商啊时代峰峻阿打算打飞机啊删掉了啊时代峰峻阿斯兰的 删掉了附件三发的世界里开发商啊时代峰峻阿打算打飞机啊删掉了啊时代峰峻阿斯兰的 删掉了附件三发的世界里开发商啊时代峰峻阿打算打飞机啊删掉了啊时代峰峻阿斯兰的 删掉了附件三发的世界里开发商啊时代峰峻阿打算打飞机啊删掉了啊时代峰峻阿斯兰的 删掉了附件三发的世界里开发商啊时代峰峻阿打算打飞机啊删掉了啊时代峰峻阿斯兰的
+                            删掉了附件三发的世界里开发商啊时代峰峻阿打算打飞机啊删掉了啊时代峰峻阿斯兰的 删掉了附件三发的世界里开发商啊时代峰峻阿打算打飞机啊删掉了啊时代峰峻阿斯兰的 删掉了附件三发的世界里开发商啊时代峰峻阿打算打飞机啊删掉了啊时代峰峻阿斯兰的 删掉了附件三发的世界里开发商啊时代峰峻阿打算打飞机啊删掉了啊时代峰峻阿斯兰的 删掉了附件三发的世界里开发商啊时代峰峻阿打算打飞机啊删掉了啊时代峰峻阿斯兰的 删掉了附件三发的世界里开发商啊时代峰峻阿打算打飞机啊删掉了啊时代峰峻阿斯兰的
+                            删掉了附件三发的世界里开发商啊时代峰峻阿打算打飞机啊删掉了啊时代峰峻阿斯兰的 删掉了附件三发的世界里开发商啊时代峰峻阿打算打飞机啊删掉了啊时代峰峻阿斯兰的 删掉了附件三发的世界里开发商啊时代峰峻阿打算打飞机啊删掉了啊时代峰峻阿斯兰的
+                        </p>
+                    </div>
+                    <div class="t_open">
+                        <div class="trianOpen">
+                            <span>展开</span>
+                            <i></i>
+                        </div>
+                        <div class="t_close none">收起</div>
+                        <div class="start-work">开始练习</div>
+                    </div>
+
+                </div>
+                <div class="share">
+                    <ul id="share">
+                        <!-- 学员评论 -->
+                        <!-- 加载模板 -->
+                    </ul>
+                    <h1 id="ajax_Btn">开始加载数据</h4>
+                </div>
+            </div>
+
+
+            <!-- 课程选集 ================================================== -->
+            <div class="leaning-view none">
+                <div id="view-tab" class="view-tab">
+                    <ul>
+                        <!-- 目录 -->
+                        <!-- 加载模板 -->
+                    </ul>
+                </div>
+                <div class="notes">
+                    <h3>课程目录</h3>
+                    <ul class="leaning-notes">
+                        <!-- 目录 -->
+                        <!-- 加载模板 -->
+                    </ul>
+                </div>
+                <div class="notes">
+                    <h3>课程ppt</h3>
+                    <ul class="leaning-ppt">
+                        <!-- ppt  -->
+                        <!-- 加载模板 -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="../plugin/seedsui.min.js"></script>
+    <script src="../plugin/jquery.js"></script>
+    <script src="../plugin/template-web.js"></script>
+    <script src="../js/rem.js"></script>
+    <script src="../js/ajax.js"></script>
+    <script>
+        // 后退按钮
+        function back() {
+            window.history.go(-1)
+        }
+        $(function() {
+            /*
+                页面跳转接受参数封装
+            */
+            function GetRequest() {
+                var url = location.search, //获取url中"?"符后的字串
+                    theRequest = new Object();
+                if (url.indexOf("?") != -1) {
+                    var str = url.substr(1);
+                    strs = str.split("&");
+                    for (var i = 0; i < strs.length; i++) {
+                        theRequest[strs[i].split("=")[0]] = decodeURIComponent(strs[i].split("=")[1]);
+                    }
+                }
+                return theRequest;
+            }
+            let course_id = GetRequest(), // 输出 { “id": 222}
+                index_id = course_id['id'], // 输出 222
+                index_name = course_id['table'];
+
+            // 请求视频详情信息
+            ajax("get", "list_detail.json?", {
+                table: 'course',
+                id: index_id
+            }, "json", function(res) {
+                console.log(res);
+                let course_img = res.img;
+                $('.course_img').attr('src', 'http://www.iepsy.com/' + course_img);
+                $('.notes-content div').html(res.note);
+                // $(".courseIntroduction").html(hahahahahahah);
+                console.log(res.note);
+            })
+
+            /* 学员评论区域需要滚动加载*/
+            var share = $('#ajax_Btn');
+            isLoad = true;
+            currentPage = 1;
+            nomore_Text = '没有更多的数据了';
+            // 评论ajax
+            function loadData() {
+                isLoad = false;
+                ajax("get", "comment_list.json", {
+                    tbl_name: 'course',
+                    tbl_id: index_id,
+                    page: currentPage
+                }, "json", success_dis, function() {
+                    alert('请求错误');
+                })
+            }
+
+            // 评论成功回调函数
+            function success_dis(data) {
+                isLoad = true;
+                currentPage++;
+                console.log(data);
+                let res = data.list,
+                    html = '';
+                // 学员评论
+                for (let i = 0; i < res.length; i++) {
+                    html += '<li>';
+                    html += '<div class="share-title clearfix">';
+                    html += '<a class="fl" href="">';
+                    html += '<img src="../images/logo.png" alt="">';
+                    html += '</a>';
+                    html += '<div class="fl">';
+                    html += '<p>' + res[i].user.nickname + '</p>';
+                    html += '<i>' + res[i].add_time + '</i>';
+                    html += '</div>';
+                    html += '</div>';
+                    html += '<div class="share-txt">';
+                    // html += '<h3>' + res[i].title + '</h3>';
+                    html += '<p class="share-txt-num">' + res[i].text + '</p>';
+                    html += ' </div>';
+                    html += '<div class="share-bottom clearfix">';
+                    html += '<span class="fl">浏览<i>36</i>次</span>'
+                    html += '<span id="diss_agin" data_cid="' + res[i].id + '" class= "fr">5评论</span>';
+                    html += '<span class="fr">10点赞</span>';
+                    html += '</div>';
+                    html += '</li>';
+                }
+                $('#share').append(html);
+                //接口是否查询完毕
+                if (data.pageCount == data.pageNo || currentPage > data.pageCount) {
+                    //数据全部加载完毕
+                    isLoad = false;
+                    // 如果加载完所有数据，显示不能加载更多
+                    share.html(nomore_Text);
+                }
+                // 学院评论 限制字符个数
+                $(".share-txt-num").each(function() {
+                    var maxwidth = 130;
+                    if ($(this).text().length > maxwidth) {
+                        $(this).text($(this).text().substring(0, maxwidth));
+                        $(this).html($(this).html() + '...');
+                    }
+                });
+                // 点击每条练习题跳转练习详情页面
+                $('#share li').on('click', function() {
+                    let trian_cid = $('#diss_agin').attr('data_cid');
+                    window.location.href = './trian_detail.html?table=course&id=' + index_id + '&cid=' + trian_cid;
+                });
+
+            }
+            // 判断是否应该开始加载
+            function isScrollLoad() {
+                var share_top = share.offset().top,
+                    win_height = $(window).height(),
+                    scroll_top = $(window).scrollTop(),
+                    loading_height = share.height();
+                return share_top < scroll_top + win_height - (loading_height - 50) ? true : false;
+            }
+            // 滚动问题改变样式布局
+            $(window).scroll(function() {
+                var img_top = $('.img').offset().top;
+                var img_height = $('.img').innerHeight();
+                var scroll_Top = $(window).scrollTop();
+                var num = scroll_Top - (img_top + img_height - 50);
+                if (num >= 0) {
+                    console.log("滚动改变布局");
+                    $('.auto').removeClass('none');
+                    $('#tab-view').addClass('add_viewTab');
+                    $('#view-tab').addClass('add_viewTab2');
+                } else {
+                    $('.auto').addClass('none');
+                    $('#tab-view').removeClass('add_viewTab');
+                    $('#view-tab').removeClass('add_viewTab2');
+                }
+                // 评论区滚动加载
+                var _needload = isScrollLoad();
+                if (_needload && isLoad) {
+                    loadData();
+                }
+
+            });
+            // $(window).load(function () {
+            //     loadData();
+            // });
+            // 目录ajax
+            $.ajax({
+                type: "post",
+                url: "../json/course.php",
+                data: "{'id':index_1}",
+                dataType: "json",
+                success: sucessCallback
+            });
+            /* 目录请求成功的回调函数*/
+            function sucessCallback(data) {
+                // console.log(data);
+                $('#course_title').html(data.title); // 标题
+                $('.courseIntroduction').html(data.course); // 课程简介
+                var res2 = data.list2,
+                    res3 = data.list3,
+
+                    html_2 = '', // 课程目录模板
+                    html_3 = '', // 课程目录模板
+                    html_4 = '', // 没有ppt显示模板
+                    html_5 = ''; // 有ppt模板
+
+                // 课程目录 全
+                for (let i = 0; i < res2.length; i++) {
+                    let j = i + 1;
+                    html_2 += '<li class="mulu_all">';
+                    html_2 += ' <span>' + j + '</span>' + res2[i] + '</li>';
+                }
+                $('.leaning-notes').append(html_2);
+                $('.mulu_all:nth-child(1)').addClass('l_active');
+                $('.mulu_all').on('click', function() {
+                    $(this).addClass('l_active').siblings().removeClass('l_active');
+                });
+                // 课程目录 小
+                for (let i = 0; i < res2.length; i++) {
+                    let j = i + 1;
+                    html_3 += '<li>' + j + '</li>';
+                }
+                $('.view-tab ul').append(html_3);
+                $('.view-tab  li:nth-child(1)').addClass('li_active');
+                $('.view-tab li').on('click', function() {
+                    $(this).addClass('li_active').siblings().removeClass('li_active');
+                });
+                //课程缩略处
+                // 1.先判断是否有ppt 图片 2.如果数据没有ppt显示提醒  3. 如果有ppt 动态加载
+                if (res3 == '') {
+                    html_4 = ' <li><img src="../images/ppt_data.jpg" alt=""></li>'
+                    $('.leaning-ppt').append(html_4);
+                } else {
+                    for (let i = 0; i < res3.length; i++) {
+                        html_5 += ' <li><img src="' + res3[i] + '" alt=""></li>'
+                    }
+                    $('.leaning-ppt').append(html_5);
+                }
+            }
+
+            // tab栏切换样式插件
+            window.addEventListener("load", function(e) {
+                [].slice.call(document.querySelectorAll('.tabbar')).forEach(function(tabbar) {
+                    tabbar.onclick = function(e) {
+                        [].slice.call(tabbar.querySelectorAll('.tab')).forEach(function(tab) {
+                            tab.classList.remove("course_active");
+                        });
+                        e.target.classList.add("course_active");
+                    }
+                });
+            }, false);
+            // tab 栏切换
+            $('.tab').on('click', function() {
+                $("#tab-tab>div").hide().eq($(this).index()).show();
+            });
+            // 课程简介展开收起
+            $('.open').on('click', function() {
+                var txt = $(this).context.innerText;
+                if (txt == '展开') {
+                    $(this).html('收起');
+                    $('.courseIntroduction').removeClass('courseIntroduction-open');
+                } else {
+                    $(this).html('展开');
+                    $('.courseIntroduction').addClass('courseIntroduction-open');
+                }
+            });
+            // 练习题展开
+            $('.trianOpen').on('click', function() {
+                $('.trian').removeClass('trian-open');
+                $(this).hide();
+                $('.t_close').show();
+            });
+            // 练习题点击收起
+            $('.t_close').on('click', function() {
+                $(this).hide();
+                $('.trian').addClass('trian-open');
+                $('.trianOpen').show();
+
+            });
+
+
+            // 开始答题
+            $('.start-work').on('click', function() {
+                //  跳转到练习书写页面
+                window.location.href = './trian.html?table=course&id=' + index_id;
+            });
+
+            // 点击课程笔记 跳转到note笔记详情页面
+            $('#note').on('click', function() {
+                window.location.href = './note.html?table=course&id=' + index_id;
+            });
+
+
+        });
+    </script>
+</body>
+
+</html>

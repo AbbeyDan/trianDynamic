@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>学习资料</title>
+    <link rel="stylesheet" href="plugin/seedsui.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/leaning.css">
+</head>
+
+<body>
+    <div id="header" class="clearfix">
+        <div class="logo fl">
+            <a href="">
+                <img src="./images/logo.png" alt="">
+            </a>
+        </div>
+        <div class="search fl">
+            <input type="text" placeholder="请输入搜索内容">
+        </div>
+        <div class="search_btn fr">
+            <span>搜索</span>
+            <!-- <i class="icon icon-qrcode"></i> -->
+        </div>
+    </div>
+    <div class="notes">
+        <div class="notes_title ">
+            <span>课程笔记</span>
+        </div>
+        <ul class="notes_txt">
+            <!-- 笔记 -->
+            <!-- 加载模板 -->
+        </ul>
+        <h1 id="ajax_Btn">开始加载数据</h4>
+    </div>
+    <!--底部导航-->
+    <div style="height: 1rem;"></div>
+    <footer id="footer">
+        <ul class="clearfix">
+            <li>
+                <a href="index.html">
+                    <i class="home"></i>
+                    <label>推荐</label>
+                </a>
+            </li>
+            <li>
+                <a class="base_active" href="leaning.html">
+                    <i class="date"></i>
+                    <label>学习资料</label>
+                </a>
+            </li>
+            <li>
+                <a href="me.html">
+                    <i class="me"></i>
+                    <label>我的</label>
+                </a>
+            </li>
+        </ul>
+    </footer>
+    <script src="plugin/seedsui.min.js"></script>
+    <script src="plugin/jquery.js"></script>
+    <script src="js/rem.js"></script>
+    <script src="js/search.js"></script>
+    <script>
+
+        var share = $('#ajax_Btn'),
+            isLoad = true,
+            currentPage = 1,
+            nomore_Text = '没有更多的数据了';
+
+        // 学员评论
+        function loadData() {
+            isLoad = false;
+            $.ajax({
+                type: "get",
+                url: "http://39.104.90.182:80/px/service/px/list_list.json?table=course",
+                data: { page: currentPage },
+                dataType: "json",
+                success: success_dis,
+                erron: function () {
+                    alert('请求错误');
+                }
+            });
+        }
+        // 评论成功回调函数
+        function success_dis(res) {
+            isLoad = true;
+            currentPage++;
+            console.log(res);
+            var data = res.list;
+            var html = '';
+            var note="暂无笔记";
+            for (let i = 0; i < data.length; i++) {
+                if(data[i].note!=null){
+                    note=data[2].note.substring(data[2].note.indexOf(">")+1,data[2].note.lastIndexOf("</h1>"))
+                }else{
+                    note="暂无笔记"
+                }
+                html += '<li class="notes_li" data_id="'+data[i].id+'">';
+                html += '<p>' + note + '</p>';
+                html += '</li>';
+            }
+            $('.notes_txt').append(html);
+            // $(".notes_li p").append($(".notes_li p").html());
+            $('.notes_txt li').on('click', function () {
+                var index_id = $(this).attr('data_id');
+                // alert('现在笔记是假的没有参数，占时跳转note页面')
+                window.location.href = './html/note.html?id=' + index_id;
+            })
+            if (res.pager.pageCount == res.pager.pageNumber || currentPage > res.pager.pageCount) {
+                //数据全部加载完毕
+                isLoad = false;
+                loadingBtn.html(nomore_Text);
+            }
+        }
+        // 判断是否应该开始加载
+        function isScrollLoad() {
+            var share_top = share.offset().top,
+                win_height = $(window).height(),
+                scroll_top = $(window).scrollTop(),
+                loading_height = share.height();
+            return share_top < scroll_top + win_height - (loading_height - 50) ? true : false;
+        }
+        // 滚动问题改变样式布局
+        $(window).scroll(function () {
+
+            // 评论区滚动加载
+            var _needload = isScrollLoad();
+            if (_needload && isLoad) {
+                loadData();
+            }
+
+        });
+        loadData();
+    </script>
+
+
+
+</body>
+
+</html>

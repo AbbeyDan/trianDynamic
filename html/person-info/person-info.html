@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>线下缴费</title>
+    <link rel="stylesheet" href="../../plugin/seedsui.min.css">
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/person-info.css">
+</head>
+
+<body>
+    <!--头部-->
+    <header class="detail_header" style="background-color: #dc8d46;color:#fff;">
+        <a href="#" onclick="back();"></a>
+        <h3>线下缴费证明</h1>
+    </header>
+<form action="">
+
+
+    <div class="per_form">
+        <div class="info-item">
+            <div class="ii_input">
+                <label for="">姓名：</label>
+                <input type="text" name="username" placeholder="用户名">
+            </div>
+        </div>
+
+        <div class="info-item">
+            <div class="ii_input">
+                <label for="">手机号：</label>
+                <input type="text" name="phone" placeholder="手机号">
+            </div>
+        </div>
+
+    </div>
+    <!-- 上传图片 -->
+    <div class="upload">
+        <div class="upload-top">上传图片</div>
+        <div class="upload-bottom clearfix">
+            <input class="none" id="upload" class="upfile" name="img" accept="image/*" type="file" />
+            <div class="fl thumbnail none">
+                <span class="img-close  icon icon-close"></span>
+                <img class="thumbnail-img" src="" alt="">
+            </div>
+            <a class="fl upload-img" href="#">
+                <img src="../../images/upload.png" alt="" class="gsc-pic">
+            </a>
+
+        </div>
+    </div>
+    <div class="upload-btn">
+        <button>提交</button>
+    </div>
+</form>
+
+    <script src="../../plugin/seedsui.min.js"></script>
+    <script src="../../plugin/jquery.js"></script>
+    <script src="../../js/rem.js"></script>
+    <script>
+        function back() {
+            window.history.go(-1)
+        }
+
+        $('.upload-img').on('click', function () {
+            $('#upload').click();
+            $('#upload').on('change', function () {
+                var objUrl = getObjectURL(this.files[0]); //获取图片的路径，该路径不是图片在本地的路径
+                if (objUrl) {
+                    $('.thumbnail').removeClass('none');
+                    $(".thumbnail-img").attr("src", objUrl); //将图片路径存入src中，显示出图片
+                    // $("#bigPic").attr("src", objUrl) ; //将图片路径存入src中，显示出图片
+                }
+            })
+            $('.img-close').on('click', function () {
+                $('.thumbnail').addClass('none');
+            })
+        });
+        //建立一個可存取到該file的url
+        function getObjectURL(file) {
+            var url = null;
+            if (window.createObjectURL != undefined) { // basic
+                url = window.createObjectURL(file);
+            } else if (window.URL != undefined) { // mozilla(firefox)
+                url = window.URL.createObjectURL(file);
+            } else if (window.webkitURL != undefined) { // webkit or chrome
+                url = window.webkitURL.createObjectURL(file);
+            }
+            return url;
+        }
+    </script>
+</body>
+
+</html>

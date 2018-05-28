@@ -1,0 +1,405 @@
+
+/*
+    往期课程回顾的二级页面
+*/
+@charset "UTF-8";
+
+
+
+.detail_header{
+    width: 100%;
+    height: 0.88rem;
+    background-color: #dc8d46;
+    color: #fff;
+    position: relative;
+}
+.detail_header h3{
+    height: 0.88rem;
+    text-align: center;
+    line-height: .88rem;
+    font-size: .3rem;
+}
+.detail_header a{
+    position: absolute;
+    top: .33rem;
+    left: .4rem;
+    display: inline-block;
+    border-left: 2px solid #fff; border-bottom: 2px solid #fff;  
+    width: .22rem; height: .22rem;  
+    transform: rotate(45deg); 
+}
+
+/* tab栏切换到颜色 */
+
+.course_active{
+  border-bottom: 1px solid #dc8d46;
+    color: #dc8d46;
+}
+
+.img{
+    width: 100%;
+    height: 4rem;
+    background-color: #fff;
+}
+
+.img_auto{
+    width: 100%;
+    height: 4rem;
+    background-color: #ccc;
+}
+
+/* 课程简介*/
+
+/* 课程简介未展开样式*/
+.courseIntroduction-open{
+    height: 2rem;
+    overflow: hidden;
+}
+/* 课程简介展开*/
+.open{
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+.open:before{
+    content:"";
+    width:60px;
+    height:2px;
+    background-color:#dc8d46;
+    display:inline-block;
+    margin-right:15px;
+    vertical-align: super ;
+}
+.open:after{
+    content:"";
+    width:  60px;
+    height: 2px;
+    background-color:   #dc8d46;
+    display:    inline-block;
+    margin-left: 15px;
+    vertical-align: super;
+}
+/*练习题*/
+
+.trian-open{
+    height: 3rem;
+    overflow: hidden;
+}
+.t_open{
+    position: relative;
+}
+/*练习题展开*/
+.trianOpen{
+    position: absolute;
+    top: -1.5rem;
+    left: 0;
+    width: 100%;
+    height: 1.5rem;
+    text-align: center;
+    background-color: #fff;
+    opacity: .9;
+    color: #dc8d46;
+    padding-top: .3rem;
+    box-sizing: border-box;
+}
+.t_close{
+    width: 100%;
+    height: 0.7rem;
+    background-color: #fff;
+    color: #dc8d46;
+    text-align: center;
+    line-height: .7rem;
+}
+.trianOpen span{
+    display: block;
+}
+.trianOpen i {
+    position: relative;
+}
+.trianOpen i:before{
+    position: absolute;
+    content:"";
+    top: -0.22rem;
+    left: -0.15rem;
+    width:.2rem;
+    height:.2rem;
+    display: inline-block;
+    border-left: 2px solid #dc8d46; border-bottom: 2px solid #dc8d46;  
+    width: .22rem; height: .22rem;  
+    transform: rotate(-45deg); 
+}
+
+.trianOpen i:after{
+    position: absolute;
+    content:"";
+    top: -0.04rem;
+    left: -0.15rem;
+    width:20px;
+    height:20px;
+    display: inline-block;
+    border-left: 2px solid #dc8d46; border-bottom: 2px solid #dc8d46;  
+    width: .22rem; height: .22rem;  
+    transform: rotate(-45deg); 
+}
+
+/* 开始答题按钮*/
+.start-work{
+    width: 100%;
+    height: .7rem;
+    line-height: .7rem;
+    text-align: center;
+    background-color: #dc8d46;
+    color: #fff;
+}
+/* 分类 */
+.tabbar .tab{
+    height:.8rem;
+    line-height: .8rem;
+}
+/*课程笔记*/
+.notes{
+    width: 100%;
+    background-color: #fff;
+    box-sizing: border-box;
+    padding: .2rem .2rem;
+    margin-top: 10px;
+}
+.notes .notes_title{
+    font-size: .35rem;
+    text-align: center;
+    margin-bottom: .2rem;
+}
+.notes_ptitle span{
+    font-size: .35rem;
+    margin-bottom: .1rem;
+    border-bottom: 2px solid #dc8d46;
+}
+.notes-content{
+    width: 100%;
+    height: 2.25rem;
+    box-sizing: border-box;
+    padding: .2rem 0;
+    border: 1px dashed #ddd;
+    overflow: hidden;
+}
+.notes-content div{
+    font-size: .2rem;
+}
+#tab-view label,
+.notes-content,
+.trian,
+.t_open,
+.open{
+    font-size:.3rem;
+}
+.notes-content p{
+    text-indent: 1em;
+}
+.notes-text1{
+    float:left;
+    height:1.3em;
+    margin-right:3em;
+    overflow:hidden;
+}
+.notes-point{
+    width:3em;
+    height:1.31em;
+    float:right;
+    margin-top:-1.3em;
+}
+
+
+/* 练习题开始的遮挡层*/
+/* 遮挡层*/
+.mod-ticket{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height:100%;
+    background-color: #000;
+    z-index: 1;
+    opacity: .4;
+}
+/* 练习题答题规范*/
+.trian-norm{
+    position: fixed;
+    top: 10%;
+    left: 10%;
+    z-index: 2;
+    width: 80%;
+    height: 80%;
+    background-color: #fff;
+}
+.trian-norm h4{
+    height: .5rem;
+    text-align: center;
+    line-height: .5rem;
+    border-bottom: 1px solid #ddd;
+}
+.trian-norm a{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1rem;
+    line-height: 1rem;
+    background-color:dodgerblue;
+    color: #fff;
+    text-align: center;
+}
+/* 学院评论分享*/
+.share{
+    margin-bottom:1rem;
+    margin-top: 10px;
+    background-color: #fff;
+    padding: 0 20px;
+
+}
+.share li{
+    padding-top: 10px;
+    border-bottom: 1px solid #ddd;
+}
+.share-title a{
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    margin-right: 20px;
+}
+.share-title a img{
+    width: 1rem;
+    height: 1rem;
+}
+.share-title p{
+    height: 0.5rem;
+    line-height: 0.5rem;
+    font-size: .2rem;
+}
+.share-title i{
+    height: 0.5rem;
+    line-height: 0.5rem;
+    font-size: .2rem;
+    color: #a0a0a0;
+}
+.share-txt-num{
+    text-indent: 2em ;
+}
+.share-bottom{
+    padding: 10px 0 ;
+    
+}
+.share-bottom span{
+
+    margin-right: 20px;
+    color: #a0a0a0;
+}
+.share-txt,
+.share-bottom{
+    font-size:.2rem;
+}
+/*课程选集 课程目录样式*/
+.view-tab {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px 10px;
+    background-color: #fff;
+}
+
+.view-tab ul{
+    overflow-y: hidden;
+    overflow:  scroll;
+    white-space:nowrap;
+}
+.view-tab li{
+    width: 50px;
+    height: 50px;
+    border: 1px solid #ddd;
+    margin-right: 5px;
+    text-align: center;
+    display: inline-table;
+    line-height: 50px;
+
+}
+.leaning-notes{
+    padding: 0 20px;
+}
+.leaning-notes li{
+    height: 50px;
+    line-height: 50px;
+    border-top: 1px solid #ddd;
+}
+
+.leaning-ppt li{
+    width: 100%;
+    height: 4rem;
+    margin-top:.2rem;
+}
+.leaning-ppt img{
+    width: 100%;
+    height: 4rem;
+}
+
+/* 滚动后继续播放的位置 */
+.auto_content{
+    margin: 10px auto ;
+    width: 100px;
+    height: 30px;
+    border: 1px solid #fff;
+    text-align: center;
+    line-height: 30px;
+    color: #fff;
+    border-radius: 10px;
+
+}
+.auto{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-color:#000;
+    z-index: 10;
+}
+/* 滚动后view-tab的样式 */
+.add_viewTab{
+    position: fixed;
+    top: 50px;
+    left: 0;
+    z-index: 10;
+    border: 1px solid #ddd;
+}
+.add_viewTab2{
+    position: fixed;
+    top: 93px;
+    left: 0;
+    z-index: 10;
+    border-bottom: 1px solid #ddd;
+}
+
+.li_active{
+    background-color: #dc8d46;
+}
+.l_active{
+    color: #dc8d46;
+}
+.notes h3{
+    border-left: 3px solid #dc8d46;
+    padding-left: .2rem;
+    margin: .2rem 0 ;
+}
+.mulu_all span{
+    height: 100%;
+    vertical-align: top;
+    margin-right: .1rem;
+}
+
+/* 新增加 */
+.share_agin{
+    background-color: #ccc;
+
+}
+.share_agin li{
+    border-bottom: none;
+}

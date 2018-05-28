@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>开票申请</title>
+    <link rel="stylesheet" href="../../plugin/seedsui.min.css">
+    <link rel="stylesheet" href="../../css/square/red.css">
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/myInvoice.css">
+
+</head>
+
+<body>
+    <div class="invoice">
+        <header class="detail_header">
+            <a href="#" onclick="back()"></a>
+            <h3>开票申请</h1>
+        </header>
+        <ul class="applyInvoice-list">
+            <li>
+                <div class="list-item ai_top clearfix">
+                    <input type="checkbox" name="iCheck">
+                    <span>订单号：</span>
+                    <span>1232143283485345348</span>
+                    <span class="fr at_time">10/10/23 10:23</span>
+                </div>
+                <div class="list-item">
+                    <span>订单金额：</span>
+                    <span>1000</span>
+                    <span>元</span>
+                </div>
+                <div class="list-item">
+                    <span>订单类型：</span>
+                    <span>会议费</span>
+                </div>
+                <div class="list-item clearfix">
+                    <span>人数：</span>
+                    <span>1</span>
+                    <span>人</span>
+                    <span class="fr">已开发票</span>
+                </div>
+                <span class="ai_float">已完成</span>
+            </li>
+            <li>
+                <div class="list-item ai_top clearfix">
+                    <input type="checkbox" name="iCheck">
+                    <span>订单号：</span>
+                    <span>1232143283485345348</span>
+                    <span  class="at_time fr">10/10/23 10:23</span>
+                </div>
+                <div class="list-item">
+                    <span>订单金额：</span>
+                    <span>1000</span>
+                    <span>元</span>
+                </div>
+                <div class="list-item">
+                    <span>订单类型：</span>
+                    <span>会议费</span>
+                </div>
+                <div class="list-item clearfix">
+                    <span>人数：</span>
+                    <span>1</span>
+                    <span>人</span>
+                    <span class="fr"></span>
+                </div>
+                <span class="ai_float">正在处理中</span>
+            </li>
+            <li>
+                <div class="list-item ai_top clearfix">
+                    <input type="checkbox" name="iCheck">
+                    <span>订单号：</span>
+                    <span >1232143283485345348</span>
+                    <span  class="fr at_time" >10/10/23 10:23</span>
+                </div>
+                <div class="list-item">
+                    <span>订单金额：</span>
+                    <span>1000</span>
+                    <span>元</span>
+                </div>
+                <div class="list-item">
+                    <span>订单类型：</span>
+                    <span>会议费</span>
+                </div>
+                <div class="list-item clearfix">
+                    <span>人数：</span>
+                    <span>团购</span>
+                    <span>5</span>
+                    <span>人</span>
+                    <span class="fr"></span>
+                </div>
+                <span class="ai_float">正在处理中</span>
+            </li>
+        </ul>
+        <div class="invoice_footer">
+            <div class="ai_top fl">
+                <input id="input_all" type="checkbox" name="iCheck">
+                <span>全选</span>
+            </div>
+            <div class="ai_btn fl">
+                确定
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="../../js/rem.js"></script>
+    <script src="../../plugin/jquery.js"></script>
+    <script src="../../plugin/icheck.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.ai_top input').iCheck({
+                checkboxClass: 'icheckbox_square-red',
+                radioClass: 'iradio_square-red',
+                increaseArea: '20%',// optional
+                toggle: 'toggle',
+            });
+        });
+        $('#input_all').on('ifChanged', function (event) {
+            $('.applyInvoice-list input').iCheck('check');
+        });
+        $('#input_all').on('ifUnchecked', function (event) {
+            $('.applyInvoice-list input').iCheck('uncheck');
+        });
+
+        function back() {
+            window.history.go(-1)
+        }
+
+    </script>
+</body>
+
+</html>

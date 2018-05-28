@@ -1,0 +1,66 @@
+body{
+    height: 100%;
+}
+.about{
+    height: 100%;
+    background-color: rgb(240, 245, 238);
+    font-size:.2rem;
+}
+nav{
+    height: 1rem;
+    line-height: 1rem;
+    font-weight:bold;
+    color:white;
+    background-color: #d88538;
+    border-bottom:1px solid #ccc;
+    font-size:.3rem;
+    margin:0 auto;
+}
+nav .back{
+    position: absolute;
+    width: .5rem;
+    top: 50%;
+    left: .2rem;
+    font-size: .5rem;
+    transform: translateY(-50%);
+}
+nav,.orderStatus{
+    position: fixed;
+    width: 100%;
+    z-index:1;
+}
+nav{
+    top:0;
+}
+/* 内容 */
+.content{
+    margin-top:1rem;
+}
+/* logo */
+.xlogo{
+    height: 5rem;
+    line-height:5rem;
+    text-align: center;
+    position: relative;
+    border-bottom:1px solid #ccc;
+}
+.xlogo img{
+    width: 2rem;
+    height: 2rem;
+}
+.xlogo p{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.info li{
+    height: 1rem;
+    line-height: 1rem;
+    border-bottom: 1px solid #ccc;
+    padding-right: 10px;
+    padding-left:10px;
+}
+.info i{
+    float:right;
+}

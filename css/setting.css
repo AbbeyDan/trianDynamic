@@ -1,0 +1,87 @@
+body{
+    height: 100%;
+}
+.setting{
+    height: 100%;
+    background-color: rgb(240, 245, 238);
+    font-size:.2rem;
+}
+nav{
+    height: 1rem;
+    line-height: 1rem;
+    font-weight:bold;
+    color:white;
+    background-color: #d88538;
+    border-bottom:1px solid #ccc;
+    font-size:.3rem;
+    margin:0 auto;
+}
+nav .back{
+    position: absolute;
+    width: .5rem;
+    top: 50%;
+    left: .2rem;
+    font-size: .5rem;
+    transform: translateY(-50%);
+}
+nav,.orderStatus{
+    position: fixed;
+    width: 100%;
+    z-index:1;
+}
+nav{
+    top:0;
+}
+ul{
+    margin-top:1rem;
+}
+ul li{
+    height: 1rem;
+    line-height: 1rem;
+    padding-left:20px;
+    border-bottom:1px solid #ccc;
+    overflow: hidden;
+}
+.exitLogon a,
+.login a{
+    display: block;
+    width: 1.2rem;
+    height: .6rem;
+    line-height: .6rem;
+    text-align: center;
+    background-color: skyblue;
+    margin-top: .2rem;
+    border-radius: .2rem;
+}
+.login a{
+    background-color: #c1f1bd;
+}
+form{
+    margin-top: 1.2rem;
+
+}
+.oldPsd,
+.newPsd,
+.confirmation{
+    height: 1rem;
+    line-height: 1rem;
+    border-bottom: 1px solid #ccc;
+    padding-left: 20px;
+}
+form>div input{
+    height: 1rem;
+    width:200px;
+    background:none;    
+    outline:none;
+}
+.submit{
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+    height: 1rem;
+    line-height: 1rem;
+}
+/* 找回密码按钮 */
+.oldPsd a{
+    position: absolute;
+    right: .2rem;
+}

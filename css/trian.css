@@ -1,0 +1,113 @@
+
+
+
+/* 顶部栏 */
+.detail_header{
+    width: 100%;
+    height: 0.88rem;
+    background-color: #dc8d46;
+    color: #fff;
+    position: relative;
+}
+.detail_header h3{
+    height: 0.88rem;
+    text-align: center;
+    line-height: .88rem;
+    font-size: .3rem;
+}
+.detail_header a{
+    position: absolute;
+    top: .33rem;
+    left: .4rem;
+    display: inline-block;
+    border-left: 2px solid #fff; 
+    border-bottom: 2px solid #fff;  
+    width: .22rem; height: .22rem;  
+    transform: rotate(45deg); 
+}
+.header_btn,
+.header_right{
+    position: absolute;
+    top: 0.25rem;
+    right: 0;
+    width: 1rem;
+    font-size: .3rem;
+}
+.main{
+    border-bottom: 1px solid #ccc;
+    box-sizing: border-box;
+    padding: 10px 20px;
+}
+.main_title{
+    width: 100%;
+    height: .5rem;
+    line-height: .5rem ;
+    box-sizing: border-box;
+}
+.main_text{
+    margin: 10px 0;
+}
+.main_input{
+    box-sizing: border-box;
+    padding: 20px 20px;
+}
+.main_input input {
+    box-sizing: border-box;
+    width: 100%;
+    height: .88rem;
+    padding-left: 10px;
+}
+.main,
+.main_input,
+.second>div{
+    font-size:.2rem;
+}
+.write{
+    width: 100%;
+    height: 2rem;
+    margin-top: 20px; 
+    display: table;    
+}
+
+.write .left{
+    width: 40%;
+    height: 100%;
+    background: url(../images/bg1.jpg) no-repeat ;
+
+}
+.write .right{
+    width: 60%;
+    height: 100%;
+    background: url(../images/bg2.jpg) no-repeat ;
+
+}
+.write .left, 
+.write .right{
+    display:inline-block;
+    display:table-cell;
+    vertical-align: middle;
+    text-align: center;
+    background-size:100% 100%;
+   
+}
+.write .right{
+    padding:5px 30px;
+    text-align: left;
+}
+.textarea{
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+    padding: 5px;
+    border:1px solid #ccc;
+}
+.textarea:empty:before{
+    content: attr(placeholder);
+    color:#bbb;
+    }
+.textarea:focus:before{
+    content:none;
+    } 
+.second>div{
+    padding:0 10px;
+}

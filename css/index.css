@@ -1,0 +1,236 @@
+/*
+
+一级标签 index 首页
+
+*/
+@charset "utf-8";
+/* 首页四个一级标签*/
+#label-1{
+    box-sizing: border-box;
+    width: 100%;
+    height: 0.8rem;
+    padding-top: .2rem;
+    background-color: #fff;
+}
+#label-1 li {
+    float: left;
+    width: 25%;
+    height: .4rem;
+    text-align: center;
+    box-sizing: border-box;
+    border-left: 1px solid #ddd;
+}
+#label-1 a{
+    font-size: .3rem;
+}
+#label-1 li:nth-child(1){
+    border-left: none;
+}
+.container ,
+.carrousel-container,
+.carrousel-wrapper,
+.carrousel-slide{
+    width: 100%;
+    height: 2rem;
+}
+.container img{
+    width: 100%;
+    height: 2rem;
+}
+.nav {
+    width: 100%;
+    padding-top:0.2rem;
+    padding-bottom: .15rem;
+    background-color: #fff;
+}
+.nav li{
+    float: left;
+    width: 25%;
+    text-align: center;
+}
+/* .nav ul  .icon{
+    font-size: 30px;
+    width: .8rem;
+    height: .8rem;
+    line-height: .8rem;
+} */
+.nav .friend{
+    background: url(../images/pics/friend.png) no-repeat  center center;
+}
+.nav .lesson{
+    background: url(../images/pics/lesson.png) no-repeat  center center;
+}
+.nav .data{
+    background: url(../images/pics/data.png) no-repeat  center center;
+}
+.nav .talk{
+    background: url(../images/pics/talk.png) no-repeat  center center;
+}
+.nav .friend,
+.nav .lesson,
+.nav .data,
+.nav .talk{
+    background-size: 100%;
+    margin-bottom:5px;
+}
+
+.nav label{
+    font-size: .3rem;
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.main-list li {
+    position: relative;
+    margin-top: .2rem ;
+    width: 100%;
+    background-color: #fff;
+    /* border-top: 1px solid #ccc; */
+}
+.main-list .main_img{
+    width: 100%;
+    height: 4rem;
+    padding: 0 0.2rem;
+    box-sizing: border-box;
+}
+.main-list li img{
+    width: 100%;
+    height: 4rem;
+}
+.main-list  .main-title{
+    position: absolute;
+    top: 10px;
+    left: 0;
+    font-size: .2rem;
+}
+.main-title span{
+    border: 1px solid #000;
+    border-radius: 3px;
+    padding: 5px;
+    margin-left: .2rem;
+}
+.main-title i{
+    border: 1px solid #000;
+    border-radius: 3px;
+    padding: 5px;
+    margin-left: 10px;
+}
+.main-footer{
+    background-color: #fff;
+}
+.main-footer p{
+    padding: .1rem .2rem 0;
+    font-size: .3rem;
+}
+.main-footer ul{
+    width: 100%;
+    color: dimgray;
+}
+.main-footer li{
+    box-sizing: border-box;
+    width: 100%;
+    padding:0 0.2rem;
+    margin-top:.1rem; 
+    font-size: .32rem;
+    color: #999;
+}
+.main-footer .m-footer-r{
+    color: red;
+}
+
+
+.lable-second {
+    background-color: #fff;
+    margin-top: .2rem;
+}
+.lable-second ul li {
+    width: 33.3%;
+    height: .75rem;
+    text-align: center;
+    line-height: .75rem;
+    box-sizing: border-box;
+    border-bottom: 1px solid #ececec;
+    border-right: 1px solid #ececec;
+    float: left;
+}
+
+/*  往期课程回顾 */
+.section .course-h1{
+    width: 100%;
+    height: 1rem;
+    background: url(../images/bg.png) no-repeat center ;
+    background-size:100%;
+    line-height: 1rem;
+    text-align: center;
+    color: #fff;
+    font-size:.4rem;
+}
+.section .course-h1 a{
+    display:inline-block;
+    width: .8rem;
+    height: .5rem;
+    border-radius:15px;
+    background: url(../images/more.png) no-repeat center ;
+    background-size:100% 100%;
+   
+}
+.course-ul{
+    margin-top: .2rem;
+}
+.course-ul li {
+    width: 100%;
+    padding: .1rem .2rem;
+    margin-bottom: .2rem;
+    box-sizing: border-box;
+    border-bottom: 1px solid #ccc;
+    background-color: #fff;
+}
+.list-left {
+    width: 3rem;
+    height: 2rem;
+}
+.list-left img {
+    width: 3rem;
+    height: 2rem;
+}
+.list-right{
+    box-sizing: border-box;
+    width: 4rem ;
+    height: 2rem;
+    padding-left: 10px;
+}
+.list-right-title{
+    margin-bottom: .2rem;
+}
+.list-right p {
+    display: block;
+    font-size: .3rem;
+    color: #514c49;
+    margin-bottom: .1rem;
+}
+.list-right p span{
+    font-size: .25rem;
+    color: #b3b3b3;
+}
+
+footer{
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+footer .home{
+    background: url(../images/home1.png) no-repeat  center center;
+}
+footer .date{
+    background: url(../images/date.png) no-repeat  center center;
+}
+footer .me{
+    background: url(../images/me.png) no-repeat  center center;
+}
+footer .home,
+footer .date,
+footer .me{
+    background-size: 100%;
+}

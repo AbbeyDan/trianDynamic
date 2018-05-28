@@ -1,0 +1,216 @@
+
+/*
+    填写参会个人信息的表单样式
+*/
+
+/* 顶部 */
+
+.detail_header{
+    width: 100%;
+    height: 0.88rem;
+    background-color: #fff;
+    color: #dc8d46;
+    position: relative;
+}
+.detail_header h3{
+    height: 0.88rem;
+    text-align: center;
+    line-height: .88rem;
+    font-size: .3rem;
+}
+.detail_header a{
+    position: absolute;
+    top: .33rem;
+    left: .4rem;
+    display: inline-block;
+    border-left: 2px solid; border-bottom: 2px solid;  
+    width: .22rem; height: .22rem;  
+    transform: rotate(45deg); 
+}
+
+.per_form{
+    padding: 0 .2rem;
+    background-color: #fff;
+    margin-top: .3rem;
+    font-size: .2rem;
+}
+.info-type{
+    padding-top: .2rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.title-first{
+    font-size: .3rem;
+}
+.title-second{
+    font-size: .25rem;
+    color: #a0a0a0;
+    margin-top: .1rem;
+}
+.ts_last{
+    font-size: .17rem;
+}
+.info-item{
+    border-bottom: 1px solid #ddd;
+}
+.ii_input{
+    width: 100%;
+    height: 0.98rem;
+}
+.ii_input label{
+    width: 25%;
+    height: 0.98rem;
+    line-height: .98rem ;
+}
+.ii_input input{
+    width: 70%;
+    height: 0.98rem;
+}
+
+.info-beizhu{
+    margin-top: .3rem;
+    background-color: #fff;
+    padding: 0 .2rem;
+    width: 100%;
+    height: 2.35rem;
+    box-sizing: border-box;
+}
+.info-beizhu p{
+    width: 100%;
+    height: 0.65rem;
+    line-height: 0.65rem;
+}
+.info-beizhu textarea{
+    width: 100%;
+    height: 1.47rem;
+    border: 1px dashed #ddd;
+}
+.zhifu{
+    width: 100%;
+    height: 1.15rem;
+    background-color: #fff;
+    margin-top: .3rem;
+    padding: 0 .2rem;
+    box-sizing: border-box;
+}
+.zhifu span{
+    height: 1.15rem;
+    line-height: 1.15rem;
+}
+.info_btn {
+    position: absolute;
+    width: 100%;
+    height: 0.98rem;
+    bottom: 0;left: 0;
+    background-color: #fff;
+}
+.btn_price{
+    width: 55%;
+    height: 0.98rem;
+    line-height: 0.98rem;
+    font-size: .35rem;
+    color: #dc8d46;
+    box-sizing: border-box;
+    padding-left: .2rem;
+}
+.btn_btn{
+    
+}
+.info_btn .btn_btn{
+    width: 45%;
+    /* width: 100%; */
+    height: 0.98rem;
+    text-align: center;
+    line-height: .98rem;
+    background-color: #dc8d46;
+    color: #fff;
+    font-size: .35rem;
+}
+
+/* 参会须知层 */
+.pay_mod{
+    width: 100%;
+    background-color: #fff;
+}
+.pay_mod h4{
+    height: .88rem;
+    line-height: 0.88rem;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    font-size: .3rem;
+}
+.pm_text{
+    width: 100%;
+    padding: .1rem .2rem;
+    box-sizing: border-box;
+    font-size: .25rem;
+}
+.pm_text p{
+    text-indent: 2em;
+    margin-bottom: .2rem;
+}
+.pay_mod button{
+    width: 100%;
+    height: 1rem;
+    line-height: 1rem;
+    background-color: #dc8d46;
+    font-size: .3rem;
+}   
+
+/* 线下缴费的上传图片 */
+
+.upload {
+    width: 100%;
+    background-color: #fff;
+    margin-top: .2rem;
+}
+.upload-top{
+    padding-top: .4rem;
+    padding-left: .2rem;
+    font-size: .3rem;
+}
+.upload-bottom{
+    box-sizing: border-box;
+    padding: .2rem .2rem;
+}
+.upload-img{
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-top: .25rem;
+    border: 1px dashed #ddd;
+}
+.upload-img img{
+    width: 1.5rem;
+    height: 1.5rem;
+}
+.thumbnail{
+    position: relative;
+    width: 1.5rem;
+    height: 1.53rem;
+    background-color: #ccc;
+    margin-right: .25rem;
+    margin-top:0.25rem;
+}
+.thumbnail-img{
+    width: 100%;
+    height: 100%;
+}
+.img-close{
+    position: absolute;
+    top: 0;
+    right: 0;
+   color: red;
+}
+.upload-btn{
+    width: 100%;
+    height: 0.88rem;
+    text-align: center;
+    margin-top: .5rem;
+}
+.upload-btn button{
+    width: 3.5rem;
+    height: 0.88rem;
+    background-color: #dc8d46;
+    color: #fff;
+    font-size: .3rem;
+}

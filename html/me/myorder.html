@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>我的订单</title>
+    <!-- <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/bootstrap-theme.min.css"> -->
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../plugin/seedsui.min.css">
+    <link rel="stylesheet" href="../../css/myOrder.css">
+    <script src="../../js/rem.js"></script>
+</head>
+
+<body>
+    <div class="myOrder">
+        <!-- 顶部导航 -->
+        <nav class="text-center">
+            <span class="back icon icon-arrowleft"></span>
+                    <span class="text"> 我的订单 </span>
+        </nav>
+        <!-- 课程状态 -->
+        <ul class="orderStatus">
+            <li>全部状态</li>
+            <li>未付款</li>
+            <li>已付款</li>
+        </ul>
+        <!-- 课程内容 -->
+        <ul class="content">
+            <li>
+                <div class="title">
+                    <span>教育 > </span>
+                    <i> </i>
+                    <div class="right">
+                        交易成功
+                    </div>
+                </div>
+                <div class="info">
+                    <div class="img">
+                        <img src="../../images/logo.png" alt="">
+                    </div>
+                    <div class="morebtn"> 更多>> </div>
+                    <div class="text">
+                        <p>父母是孩子的启蒙老师</p>
+                        <p>订单号:1203330120120</p>
+                        <button>追加评论</button>
+                    </div>
+                    <div class="price">
+                        免费
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="title">
+                    <span>教育 > </span>
+                    <i> </i>
+                    <div class="right">
+                        交易成功
+                    </div>
+                </div>
+                <div class="info">
+                    <div class="img">
+                        <img src="../../images/logo.png" alt="">
+                    </div>
+                    <div class="morebtn"> 更多>> </div>
+                    <div class="text">
+                        <p>父母是孩子的启蒙老师</p>
+                        <p>订单号:1203330120120</p>
+                        <button>追加评论</button>
+                    </div>
+                    <div class="price">
+                        免费
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="title">
+                    <span>教育 > </span>
+                    <i> </i>
+                    <div class="right">
+                        交易成功
+                    </div>
+                </div>
+                <div class="info">
+                    <div class="img">
+                        <img src="../../images/logo.png" alt="">
+                    </div>
+                    <div class="morebtn"> 更多>> </div>
+                    <div class="text">
+                        <p>父母是孩子的启蒙老师</p>
+                        <p>订单号:1203330120120</p>
+                        <button>追加评论</button>
+                    </div>
+                    <div class="price">
+                        免费
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="title">
+                    <span>教育 > </span>
+                    <i> </i>
+                    <div class="right">
+                        交易成功
+                    </div>
+                </div>
+                <div class="info">
+                    <div class="img">
+                        <img src="../../images/logo.png" alt="">
+                    </div>
+                    <div class="morebtn"> 更多>> </div>
+                    <div class="text">
+                        <p>父母是孩子的启蒙老师</p>
+                        <p>订单号:1203330120120</p>
+                        <button>追加评论</button>
+                    </div>
+                    <div class="price">
+                        免费
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <script src="../../js/jquery-1.12.1.min.js"></script>
+    <script>
+        $(".orderStatus li:first").css("color", "#d88538");
+        $(".orderStatus li").click(function () {
+            $(this).css("color", "#d88538").siblings().css("color", "black")
+        })
+        $("nav .back").click(function () {
+            history.go(-1);
+        });
+    </script>
+</body>
+
+</html>

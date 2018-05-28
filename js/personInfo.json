@@ -1,0 +1,6 @@
+{
+    "person":[
+        {"id":1,"img":"/trian/images/1.png","nickName":"fw","gender":"男","bir":"1993-09-20","province":"内蒙古","city":"呼和浩特市","area":"赛罕区","tel":"15148020920","email":"310918002@qq.com","qq":"310918002","weibo":"opps"},
+        {"id":77469,"img":"/trian/images/timg.jpg","nickName":"张丹","gender":"女","bir":"1993-09-20","province":"北京市","city":"北京市","area":"顺义区","tel":"15148020920","email":"310918002@qq.com","qq":"310918002","weibo":"opps"}
+    ]
+}

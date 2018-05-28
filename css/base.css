@@ -1,0 +1,220 @@
+/*
+    公共样式
+*/
+@charset "utf-8";
+/*公共样式*/
+html {
+    padding: 0px;
+    margin: 0px;
+    font-size: 100px;
+    background-color: #f2f2f2;
+    height: 100%;
+    
+}
+p{
+    margin:0;
+}
+body {
+    margin: 0px;
+    padding: 0px;
+    background: #f1f1f1;
+    font-size:12px ;
+    color: #000;
+    font-family: "Hiragino Sans GB";
+    /* font-family: "SimHei", tahoma, arial, Hiragino Sans GB, Microsoft YaHei, "\u5b8b\u4f53", sans-serif; */
+}
+h1{
+    padding: 0;
+    margin: 0;
+    font-weight: normal;
+}
+ul,li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+img,button,input{
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+a{
+    color: #000;
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+}
+.clearfix:after {
+    display: block;
+    clear: both;
+    content: "";
+    visibility: hidden;
+    height: 0;
+}
+.clearfix {
+    zoom: 1;
+}
+.fr{
+    float: right;
+}
+.fl{
+    float: left;
+}
+.base_active {
+    color: #d88538;
+}
+.none{
+    display: none;
+}
+/*顶部导航栏*/
+#header{
+    box-sizing: border-box;
+    width: 100%;
+    height: 0.9rem;
+    background-color: #fff;
+    padding-top: .1rem;
+}
+.logo img{
+    width: .65rem;
+    height: .65rem;
+    margin-left: .2rem;
+}
+.search input{
+    width: 5.5rem;
+    height: 0.65rem;
+    background-color: #f1f1f1;
+    margin-left: .2rem;
+    box-sizing: border-box;
+    padding-left: 10px;
+}
+.search input::-webkit-input-placeholder {
+    font-size:.25rem;
+}
+.search_btn{
+    height: .65rem;
+    line-height: .65rem;
+}
+.search_btn span{
+    margin-right: .2rem;
+    font-size: .25rem;
+}
+.search_btn i {
+    font-size: .3rem;
+    margin-right: .2rem;
+}
+
+/*底部导航栏，好几个页面通用*/
+#footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height:1rem;
+    background-color: #fff;
+}
+#footer ul{
+    height: 100%;
+    padding-top:4px;
+}
+#footer li{
+    float: left;
+    width: 33.33%;
+    height: 100%;
+    text-align: center;
+}
+#footer a{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+#footer a .icon{
+    font-size: 20px;
+    width: 100%;
+    height: 50%;
+    text-align: center;
+    display: block;  
+    margin-top:5px;
+}
+#footer label{
+    font-size: .3rem;
+    width: 100%;
+    height: 40%;
+    text-align: center;
+    display: block;
+}
+#footer .home,
+#footer .date,
+#footer .me,
+.nav .friend,
+.nav .lesson,
+.nav .data,
+.nav .talk{
+    display: inline-block;
+    width: .5rem;
+    height:.5rem;
+    /* background: url(../images/home1.png) no-repeat  center center; */   
+}
+.nav .friend,
+.nav .lesson,
+.nav .data,
+.nav .talk{
+    width: .7rem;
+    height:.7rem;
+}
+#loadingBtn{
+    height: 0.6rem;
+    line-height: 0.6rem;
+    font-size: .3rem;
+    text-align: center;
+    background-color: #d88539;
+}
+#ajax_Btn{
+    height: 0.6rem;
+    line-height: 0.6rem;
+    font-size: .3rem;
+    text-align: center;
+    background-color: #d88539;
+    }
+
+
+@font-face {font-family: "iconfont";
+    src: url('iconfont.eot?t=1517968351627'); /* IE9*/
+    src: url('iconfont.eot?t=1517968351627#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('data:application/x-font-woff;charset=utf-8;base64,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') format('woff'),
+    url('iconfont.ttf?t=1517968351627') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+    url('iconfont.svg?t=1517968351627#iconfont') format('svg'); /* iOS 4.1- */
+  }
+  
+  .iconfont {
+    font-family:"iconfont" !important;
+    font-size:16px;
+    font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .icon-fenxiang:before { content: "\e616"; }
+  
+  .icon-iconfontpinglun:before { content: "\e621"; }
+  
+  .icon-shoucang:before { content: "\e612"; }
+  /* 报名页面票价类型数量添加样式 */
+  .ticket-num {
+      font-size:.25rem;
+  }
+  .ticket-num  .numbox{
+    display: -webkit-inline-box;
+    position: relative;
+    width: 2rem;
+    height: .6rem;
+    line-height: .6rem;
+    overflow: hidden;
+    text-align: center;
+    vertical-align: middle;
+    background-color: white;
+    border-radius: 4px;
+  }
+  .ticket-num  .numbox .numbox-button{
+      font-size:.25rem;
+      width: 0.5rem;
+  }

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*" />
+    <title>登录</title>
+    <link rel="apple-touch-icon-precomposed" href="http://m.iepsy.com/images/apple-touch-icon.png">
+    <link rel="stylesheet" href="plugin/seedsui.min.css">
+    <link rel="stylesheet" href="css/uiAlertView-1.0.0.css">
+    <link rel="stylesheet" href="css/login-reg.css">
+    <style>
+        .group {
+            padding: 0 12px;
+        }
+
+        .group:after {
+            height: 0;
+        }
+
+        .icon.active {
+            color: #20aeff;
+        }
+
+        .scrollpicker {
+            bottom: 258px;
+        }
+    </style>
+</head>
+
+<body ontouchstart="" style="background-color: white;">
+    <header>
+        <div class="titlebar reverse">
+            <a class="titlebar-button" href="javascript:back()">
+                <i class="icon icon-arrowleft"></i>
+                <span>返回</span>
+            </a>
+            <h1 class="titlebar-caption text-center">用户登录</h1>
+            <a class="titlebar-button" href="./reg.html">
+
+                <span>注册</span>
+            </a>
+        </div>
+    </header>
+    <article>
+        <div style="text-align: center;" onclick="location.href='http://m.iepsy.com:80/'">
+            <img class="slide-banner" style="height: 150px;width: 150px;" src="http://m.iepsy.com:80/img/logo.png">
+            <h1>心课堂（IEPSY.COM）</h1>
+        </div>
+        <br/>
+        <!-- <form id="form1" action=""> -->
+            <div class="group">
+                <div class="inputbox underline">
+                    <label class="inputbox-left">手机号</label>
+                    <div class="inputbox-right inputbox" data-input="clear">
+                        <input type="text" class="input-text" placeholder="手机号/登录名" id="username" name="username" />
+                        <i class="icon icon-rdoclose-fill color-placeholder" style="font-size: 20px;line-height: 24px;text-align: center;display: none;"></i>
+                    </div>
+                </div>
+                <div class="inputbox underline">
+                    <label class="inputbox-left">密码</label>
+                    <div class="inputbox-right inputbox" data-input="reveal">
+                        <input type="password" class="input-text" placeholder="密码" id="password" name="password">
+                        <i class="icon icon-eye-fill color-placeholder"></i>
+                    </div>
+                </div>
+                <div class="inputbox ">
+                    <label class="inputbox-left"></label>
+                    <div class="inputbox-right inputbox" data-input="reveal">
+                    </div>
+                    <small onclick="location.href='http://m.iepsy.com:80/forget'" style="margin-top:10px; padding: 10 10px;border-radius: 4px;">忘记密码?</small>
+                </div>
+
+                <div style="line-height: 50px;padding: 8px 16px 16px 0px;">
+                    <a id="sub" class="button block primary" style="margin:8px;border-radius: 4px;width: 100%;">
+                        <span>登录</span>
+                    </a>
+                </div>
+                <div class="text-center">或</div>
+                <div style="line-height: 50px;padding: 8px 16px 16px 0px;">
+                    <a id="wx_login" class="button block submit" style="margin:8px;border-radius: 4px;width: 100%;">
+                        <i class="icon icon-weixin-fill"></i>
+                        <span>微信一键登录</span>
+                    </a>
+                </div>
+            </div>
+        <!-- </form> -->
+
+    </article>
+    <script src="js/rem.js"></script>
+    <script src="plugin/jquery.js"></script>
+    <script src="plugin/seedsui.min.js"></script>
+    <script src="js/jquery.uiAlertView-1.0.0.js"></script>
+    <script>
+        $(function () {
+             //  获取url的id 
+             function GetRequset() {
+                let url = location.search,
+                    theRequest = new Object();
+                if (url.indexOf("?") != -1) {
+                    let str = url.substr(1);
+                    strs = str.split('&');
+                    for (let i = 0; i < strs.length; i++) {
+                        theRequest[strs[i].split('=')[0]] = decodeURIComponent(strs[i].split('=')[1]);
+                    }
+                }
+                return theRequest;
+            }
+            let id = GetRequset(),
+                index_id = id['login']; // 获取URL传递过来的id 
+                console.log(index_id);
+                
+            $("#wx_login").click(function () {
+                var ua = window.navigator.userAgent.toLowerCase();
+                if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+                    location.href = "http://m.iepsy.com:80/wx_login"
+                } else {
+                    alert("只支持在微信中一键登录!")
+                }
+            })
+            $("#sub").click(function () {
+                if ($("#username").val().length < 1) {
+                    $.alertView("手机号不能为空");
+                } else if ($("#password").val().length < 1) {
+                    $.alertView("密码不能为空");
+                } else {
+                    // $("#form1").submit();
+                    
+                    // window.location.href='./index.html'
+                    $.ajax({
+                        type: 'POST',
+
+                        url: 'http://39.104.90.182:80/px/service/px/login_login.json',
+
+                        dataType: 'json',
+
+                        data: { username: $("#username").val(), password: $("#password").val() },
+
+                        success: function (data) {
+                          
+                            if (data.code == 200) {
+                                localStorage.setItem("userId",data.data.id);
+                                
+                                localStorage.setItem("username", $("#username").val()); //个人信息存储到本地
+
+                                localStorage.setItem("password",$("#password").val());
+                                
+                                if(index_id=="baoming"){
+                                    location.href=document.referrer;
+                                    console.log(document.referrer);
+                                }else{
+                                    window.location.href="index.html";
+                                    console.log(document.referrer);
+                                }
+                               
+
+                            } else {
+                                alert("用户不存在或输入错误!")
+                            }
+                        },
+                    });
+                }
+            })
+        })
+
+
+    </script>
+    <script>
+        // 返回上一级
+        $(".titlebar-button").click(function(){
+            history.go(-1);
+        })
+    </script>
+</body>
+
+</html>

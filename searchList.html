@@ -1,0 +1,67 @@
+﻿<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>搜索列表页面</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/leaning.css">
+</head>
+<body>
+        <div id="header" class="clearfix">
+            <div class="logo fl">
+                <a href="">
+                    <img src="./images/logo.png" alt="">
+                </a>
+            </div>
+            <div class="search fl">
+                <input type="text" placeholder="请输入搜索内容">
+            </div>
+            <div class="search_btn fr">
+                <span>搜索</span>
+                <!-- <i class="icon icon-qrcode"></i> -->
+            </div>
+        </div>
+        <div class="notes">
+
+            <h1 id="ajax_Btn">开始加载数据</h4>
+        </div>
+    <script src="js/search.js"></script>
+    <script src="js/jquery-1.12.1.min.js"></script>
+    <script src="js/rem.js"></script>
+    <script src="js/template-web.js"></script>
+    <!-- 模板 -->
+    <script id="lists" type="text/template">
+        <div class="notes_title ">
+            <span>关键词“{{content}}”的相关搜索内容</span>
+        </div>
+        <ul class="notes_txt">
+            <!-- 笔记 -->
+            <!-- 加载模板 -->
+            {{ each list }}
+            <li class="notes_li">{{$value.name}}</li>
+            {{/each}}
+        </ul>
+
+    </script>
+    <script>
+       $.ajax ({
+           type:"get",
+           url:"text.json",
+           success:function(res){
+            
+            //    var ulNode = document.querySelector("ul");
+                console.log(location.href);
+                var url= location.href;
+               var con = url.split("?")[1].split("=")[1]
+                // res.push(con)
+               
+                res.content= decodeURI(con);
+                console.log(res);
+               var html = template("lists",res);
+               $(".notes").html(html);
+           }
+       })
+    </script>
+</body>
+</html>

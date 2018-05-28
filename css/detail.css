@@ -1,0 +1,317 @@
+
+/*
+    学术会议页面
+*/
+@charset "utf-8";
+
+.detail_header{
+    width: 100%;
+    height: 0.88rem;
+    background-color: #dc8d46;
+    color: #fff;
+    position: relative;
+}
+.detail_header h3{
+    height: 0.88rem;
+    text-align: center;
+    line-height: .88rem;
+    font-size: .3rem;
+}
+.detail_header a{
+    position: absolute;
+    top: .33rem;
+    left: .7rem;
+    display: inline-block;
+    border-left: 2px solid #fff; border-bottom: 2px solid #fff;  
+    width: .22rem; height: .22rem;  
+    transform: rotate(45deg); 
+}
+.detail_nav{
+    width: 100%;
+    height: 4rem;
+    padding: 0 .2rem;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+.detail_nav img{
+    width: 100%;
+    height: 4rem;
+}
+.detail_section ul {
+    width: 100%;
+    /* height: 2rem; */
+    background-color: #fff;
+    padding: 0 .2rem;
+    margin-top: .2rem;
+    box-sizing: border-box;
+}
+.detail_section li{
+    color: #a0a0a0;
+    margin-top: .1rem;
+    font-size: .25rem;
+}
+.section_title p{
+    color: #000;
+    font-size: .3rem;
+}
+.detail_tab {
+    width: 100%;
+    height: .6rem;
+    background-color: #fff;
+    box-sizing: border-box;
+    margin-top: .2rem;
+}
+.detail_tab  li{
+    width: 33.33%;
+    height: .6rem;
+    float: left;
+    font-size: .3rem;
+    color: #a0a0a0;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+.detail_tab  li span{
+    display: inline-block;
+    width: 1.2rem;
+    height: .6rem;
+    line-height: .6rem;
+}
+.detail_tab .detail_active{
+    color: #dc8d46;
+    border-bottom: 1px solid #dc8d46;
+}
+.detail_tabbar ul{
+    width: 100%;
+    height: 1.9rem;
+    background-color: #fff;
+    padding: .1rem .2rem;
+    box-sizing: border-box;
+}
+.detail_tabbar li {
+    color: #a0a0a0;
+    font-size: .25rem;
+    margin-bottom: .3rem;
+}
+.detail_tab1 {
+    width: 100%;
+    height: 0.83rem;
+    background-color: #fff;
+    margin-top: .2rem;
+    font-size:.2rem;
+}
+.detail_tabbar1{
+    font-size:.2rem;
+}
+.detail_tab1 li {
+    float: left;
+    width: 25%;
+    height: 0.83rem;
+    line-height: .83rem;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    color: #a0a0a0;
+}
+.detail_tab1 .detail_active1{
+    border-bottom: 1px solid #dc8d46;
+    color: #dc8d46;
+} 
+.detail_footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0.98rem;
+    border-top: 1px solid #ddd;
+    background-color: #fff;
+    font-size: .3rem;
+}
+.detail_footer  div{
+    width: 25%;
+    height: 0.98rem;
+    line-height: .98rem;
+    text-align: center;
+}
+.detail_footer div:first-child{
+    border-right: 1px solid #ddd;
+    box-sizing: border-box;
+}
+.detail_footer .apply{
+    width: 50%;
+    height: 0.98rem;
+    background-color: #dc8d46;
+   
+}
+.apply a{
+    color: #fff;
+}
+.jigou{
+    width: 100%;
+    margin-top: .2rem;
+    background-color: #fff;
+    font-size: .3rem;
+    color: #a0a0a0;
+}
+.jigou div{
+    width: 100%;
+    text-align: center;
+}
+.jigou .renzheng{
+    color: #dc8d46;
+    padding: .16rem 0 ;
+}
+.jigou  .renzheng_detail{
+    width: 100%;
+    height: 0.88rem;
+    line-height: .88rem;
+    border-top: 1px solid #ddd;
+}
+.baoming{
+    margin-top: .2rem;
+    background-color: #fff;
+}
+.baoming p{
+    width: 100%;
+    height: 0.65rem;
+    line-height: 0.65rem;
+    text-align: center;
+    color: #dc8d46;
+    font-size: .25rem;
+}
+.baoming_img{
+    width: 100%;
+    height: 1.9rem;
+    padding: 0 .2rem;
+    box-sizing: border-box;
+    
+}
+.baoming_img img{
+    width: 100%;
+    height: 1.9rem;
+}
+.juban {
+    width: 100%;
+    padding: .1rem 0;
+}
+.juban li{
+    width: 50%;
+    text-align: center;
+}
+.juban .jubanfang{
+    box-sizing: border-box;
+    border-right: 1px solid #ddd;
+}
+.juban .jb_active{
+    color: #dc8d46;
+}
+/* 遮挡层 */
+.detail_mod{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: .5;
+    z-index: 1;
+}
+/* 判断层 */
+.d_mod{
+    position: fixed;
+    top: 40%;
+    left: 10%;
+    width: 80%;
+    height: 3rem;
+    background-color: #fff;
+    z-index: 2;
+}
+.d_mod_close{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: #ccc;
+    color: #dc8d46;
+}
+
+.d_mod h4{
+    width: 100%;
+    height: 2rem;
+    line-height: 2rem;
+    font-size: .35rem;
+    text-align: center;
+}
+.mod_bottom a{
+    font-size: .35rem;
+    display: block;
+    width: 50%;
+    height: 1rem;
+    line-height: 1rem;
+    text-align: center;
+}
+.md_true{
+    box-sizing: border-box;
+    border-right: 1px solid #ddd;  
+    background-color: #dc8d46;
+    color: #fff;
+}
+.md_false{
+    box-sizing: border-box;
+    border-top: 1px solid #ddd;
+}
+/* 报价层 */
+
+.dmod_price{
+    position: fixed;
+    top: 25%;
+    left: 10%;
+    width: 80%;
+    height: 7.65rem;
+    background-color: #fff;
+    z-index: 2;
+}
+.dmod_close{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #ccc;
+    color: #fff;
+    z-index: 10;
+}
+.ticket-title{
+    padding: 0 .7rem;
+    position: relative;
+}
+.ticket-title p{
+    width: 100%;
+    height: 0.5rem;
+    font-size: .3rem;
+    line-height: 0.5rem;
+    background-color: #fff;
+    color: #dc8d46;
+    text-align: center;
+    padding: .6rem 0 ;
+    border-bottom: 1px solid #ddd;
+}
+.ticket-item{
+    width: 100%;
+    height:1rem;
+    font-size: .25rem;
+    line-height: 1rem;
+    padding: 0 .2rem;
+    box-sizing: border-box;
+    border-bottom: 1px solid #ddd;
+}
+.ticket_btn{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: .88rem;
+    line-height: 0.88rem;
+    background-color: #dc8d46;
+    color: #fff;
+    text-align: center;
+    font-size:.2rem;
+}
+.active_item{
+   color: #dc8d46;
+}

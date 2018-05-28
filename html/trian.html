@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>练习详情页面</title>
+    <link rel="stylesheet" href="../plugin/seedsui.min.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/trian.css">
+</head>
+
+<body>
+    <div class="first">
+        <!--头部-->
+        <header class="detail_header">
+            <a href="#" onclick="back()"></a>
+            <h3>练习概览</h1>
+                <div class="header_btn">提交</div>
+        </header>
+        <div class="main">
+            <div class="main_title clearfix">
+                <span class="fl">练习题:</span>
+                <span class="fr">练习规范</span>
+            </div>
+            <div class="main_text">
+                <p>
+                    根据老师所讲内容，选择一款你最近使用的科技产品（或者一种历史上的科技），分析它是否符合老师介绍的逻辑，入符合，该如何改善它从而增加更多的商机；
+                </p>
+            </div>
+        </div>
+        <div class="main_input">
+            <input id="trian_title" type="text" placeholder="标题：请将想象限制在20字以内" maxlength="20">
+
+            <div class="write" >
+                <span class="left">字数不少于100字</span>
+                <span class="right">点此回答问题</span>
+                
+            </div>
+        </div>
+    </div>
+    <div class="second hide">
+        <!--头部-->
+        <header class="detail_header">
+            <a href="#" onclick="back_hide()"></a>
+            <div class="header_right"> 完成</div>
+        </header>
+        <div>
+            <div class="main_title">
+                <span>练习题:</span>
+            </div>
+            <div class="main_text">
+                <p>
+                    根据老师所讲内容，选择一款你最近使用的科技产品（或者一种历史上的科技），分析它是否符合老师介绍的逻辑，入符合，该如何改善它从而增加更多的商机；
+                </p>
+                <div  class="textarea" id="trian_text" value="不得少于1000字" contenteditable="true" placeholder="请输入文字"></div>
+
+        </div>
+    </div>
+
+
+    <script src="../plugin/seedsui.min.js"></script>
+    <script src="../plugin/jquery.js"></script>
+    <script src="../js/rem.js"></script>
+    <script>
+        function back() {
+            window.history.go(-1);
+        }
+        function back_hide() {
+            $('.second').hide();
+            $('.first').show();
+            // $('.write').addClass("fadeOutRightBig animated").removeClass("fadeInRightBig animated").hide();
+        }
+        // 获取url 参数
+        function GetRequest() {
+            var url = location.search; //获取url中"?"符后的字串
+            var theRequest = new Object();
+            if (url.indexOf("?") != -1) {
+                var str = url.substr(1);
+                strs = str.split("&");
+                for (var i = 0; i < strs.length; i++) {
+                    theRequest[strs[i].split("=")[0]] = decodeURIComponent(strs[i].split("=")[1]);
+                }
+            }
+            return theRequest;
+        }
+        var trian_id = GetRequest(),
+            index_name = trian_id['table'],
+            index_id = trian_id['id'];
+
+        // 点击回答问题模块
+        $('.write').on('click', function () {
+            $('.second').addClass("fadeInRightBig animated").show();
+            $('.first').hide();
+        });
+        // 点击完成按钮
+        $('.header_right').on('click', function () {
+            console.log(1111);
+            $('.first').show();
+            $('.second').hide();
+        });
+
+        // 点击提交发送ajax 上传
+        $('.header_btn').on('click', function () {
+
+            console.log($('#trian_text').val());
+            console.log($('#trian_title').val());
+            $.ajax({
+                    type: "post",
+                    url: "http://192.168.3.188/service/px/comment_save.json?",
+                    data: { user_id: '1', tbl_name: index_name, tbl_id: index_id, text: $('#trian_title').val() },
+                    dataType: "json",
+                    success: function (res) {
+                        // 成功之后跳转到course.html
+                        // window.location.href = './'
+                        window.history.go(-1)
+
+                    }
+                });
+        });
+
+
+
+
+
+    </script>
+</body>
+
+</html>

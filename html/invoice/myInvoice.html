@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>我的发票</title>
+    <link rel="stylesheet" href="../../plugin/seedsui.min.css">
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/myInvoice.css">
+</head>
+<body>
+<div class="invoice">
+    <header>
+        <div class="titlebar">
+            <a class="titlebar-button" href="javascript:back()"> <i class="icon icon-arrowleft"></i>
+            </a>
+            <h1 class="titlebar-caption" style="text-align: center;margin-right: .4rem;">我的发票</h1>
+        </div>
+    </header>
+    <div class="invoice-list">
+        <ul class="clearfix">
+            <li><a href="./applyInvoice.html ">申请开票<span class="fr icon icon-arrowright"></span></a></li>
+            <li><a href="./invoiceExplain.html">开票说明<span class="fr icon icon-arrowright"></span></a></li>
+            <li><a href="./invoiceHistory.html">开票历史<span class="fr icon icon-arrowright"></span></a></li>
+        </ul>
+    </div>
+</div>
+<script src="../../js/rem.js"></script>
+<script src="../../plugin/seedsui.min.js"></script>
+<script src="../../plugin/jquery.js"></script>
+<script>
+    function back() {
+        window.history.go(-1)
+    }
+</script>
+</body>
+</html>

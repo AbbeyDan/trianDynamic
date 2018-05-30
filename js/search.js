@@ -8,6 +8,7 @@ function search(node){
         if(xml.readyState==4&&xml.status==200){
             // 后台根据关键词返回数据
             console.log(xml.responseText);
+            var url = location.href;
             location.href="searchList.html?value="+inputValue
         }
     }
@@ -17,11 +18,4 @@ function search(node){
 btn.onclick=function(){
     search(searchNode)
 }
-// 用户回车触发搜索事件
-document.onkeydown=function(e){
-    if(e.keyCode==13){
-        search(searchNode);
-    }
-}
-
 

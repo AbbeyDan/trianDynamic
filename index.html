@@ -455,6 +455,19 @@
                 console.log($(this).context.dataset.id);
 
             });
+            // 搜索功能
+            var searchNode = document.querySelector(".search input");
+            var btn = document.querySelector(".search_btn")
+            function search(node) {
+                var inputValue = node.value;
+                location.href = "searchList.html?value=" + inputValue
+
+            }
+            // 用户点击搜索按钮触发
+            btn.onclick = function () {
+                search(searchNode)
+            }
+
 
         });
 
